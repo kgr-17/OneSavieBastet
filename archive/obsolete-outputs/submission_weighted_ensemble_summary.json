@@ -1,0 +1,434 @@
+{
+  "weight_mode": "shifted-linear",
+  "softmax_temperature": 3.0,
+  "target_rows": 400,
+  "max_per_repo_first_pass": 10,
+  "min_per_repo": 3,
+  "selected_rows": 385,
+  "unique_repos": 53,
+  "models": [
+    {
+      "name": "submission_v3",
+      "path": "outputs\\submission_v3.csv",
+      "score": 122.6383,
+      "weight": 0.8011197,
+      "rows": 368,
+      "unique_findings": 328
+    },
+    {
+      "name": "submission_v4",
+      "path": "outputs\\submission_v4.csv",
+      "score": 119.61015,
+      "weight": 0.1988803,
+      "rows": 392,
+      "unique_findings": 353
+    }
+  ],
+  "repo_counts": {
+    "a3e15237ea08": 12,
+    "099243e83259": 11,
+    "8f18f7d5c396": 11,
+    "9ddd6b83c27e": 11,
+    "a8884f87db1a": 11,
+    "1167ec3a176e": 10,
+    "27c6f2a68058": 10,
+    "2c5e13b4e147": 10,
+    "51c6dc5fd57f": 10,
+    "73f6a793d916": 10,
+    "9cc1dc4ae06a": 10,
+    "c2426a2ab283": 10,
+    "d562802cb53a": 10,
+    "dd17040a53bc": 10,
+    "e169bbefc6e2": 10,
+    "e7921851ec01": 10,
+    "e99e64a8abf1": 10,
+    "4ef0b4d678ab": 9,
+    "54405135ebf3": 9,
+    "af8e4af75dc2": 9,
+    "afa60bc8003d": 9,
+    "d9b35c0c87a4": 9,
+    "198fa93fabdd": 8,
+    "ee25ec7abd40": 8,
+    "40cc38c69cca": 7,
+    "9470d2cf198f": 7,
+    "e0d2d83ea351": 7,
+    "fee749ecd513": 7,
+    "103f39b0f29b": 6,
+    "485f7b9ccb0a": 6,
+    "9befb133ee74": 6,
+    "a4d91fb1550f": 6,
+    "e6e43dfea59f": 6,
+    "1d8f1f43cde9": 5,
+    "7100a75d6ebd": 5,
+    "7b5e1803022e": 5,
+    "804fe35b0164": 5,
+    "97843b77b287": 5,
+    "a1ee58021528": 5,
+    "b155c4de6012": 5,
+    "ba93b3b8d7cf": 5,
+    "bb3018c8812c": 5,
+    "c20104cb90d7": 5,
+    "0315ba9d8121": 4,
+    "03196f805abb": 4,
+    "348856fe60ac": 4,
+    "592eed5791df": 4,
+    "7bbe3d81960c": 4,
+    "8a20eb1e521f": 4,
+    "98b7c1691811": 4,
+    "b2a8c124d062": 4,
+    "b7fc4d82013a": 4,
+    "fa1836e0615e": 4
+  },
+  "top_candidates": [
+    {
+      "repo_path": "0315ba9d8121",
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "0315ba9d8121",
+      "tag": "Input Validation",
+      "subtag": "Invalid Validation",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "03196f805abb",
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "03196f805abb",
+      "tag": "DoS",
+      "subtag": "Bad Condition",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "03196f805abb",
+      "tag": "Input Validation",
+      "subtag": "Invalid Validation",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "099243e83259",
+      "tag": "Access Control",
+      "subtag": "Centralization Risk",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "099243e83259",
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "099243e83259",
+      "tag": "Arithmetic",
+      "subtag": "Precision Loss",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "099243e83259",
+      "tag": "DoS",
+      "subtag": "Bad Condition",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "099243e83259",
+      "tag": "DoS",
+      "subtag": "Out of Gas",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "103f39b0f29b",
+      "tag": "Accounting Error",
+      "subtag": "Incorrect Parameter",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "103f39b0f29b",
+      "tag": "ERC20",
+      "subtag": "Fee On Transfer Token",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "103f39b0f29b",
+      "tag": "Governance",
+      "subtag": "Bad Condition",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "103f39b0f29b",
+      "tag": "Input Validation",
+      "subtag": "Invalid Validation",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "103f39b0f29b",
+      "tag": "Logic Error",
+      "subtag": "Implementation Error",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "1167ec3a176e",
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "1167ec3a176e",
+      "tag": "Arithmetic",
+      "subtag": "Precision Loss",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "1167ec3a176e",
+      "tag": "DoS",
+      "subtag": "Bad Condition",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "1167ec3a176e",
+      "tag": "DoS",
+      "subtag": "Out of Gas",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "1167ec3a176e",
+      "tag": "ERC20",
+      "subtag": "Fee On Transfer Token",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "198fa93fabdd",
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "198fa93fabdd",
+      "tag": "Arithmetic",
+      "subtag": "Precision Loss",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "198fa93fabdd",
+      "tag": "DoS",
+      "subtag": "Bad Condition",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "198fa93fabdd",
+      "tag": "Input Validation",
+      "subtag": "Invalid Validation",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    },
+    {
+      "repo_path": "1d8f1f43cde9",
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency",
+      "rank_score": 1.32016795,
+      "support_weight": 1.0,
+      "support_count": 2,
+      "best_model_name": "submission_v3",
+      "best_model_score": 122.6383,
+      "supporting_models": [
+        "submission_v3",
+        "submission_v4"
+      ]
+    }
+  ]
+}

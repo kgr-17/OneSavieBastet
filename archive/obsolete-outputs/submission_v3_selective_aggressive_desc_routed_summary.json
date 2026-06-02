@@ -1,0 +1,20 @@
+{
+  "input": "artifacts/validation-standard/selective-anchor-aggressive/outputs/holdout_predictions.csv",
+  "output": "C:\\OneSavieBastet\\artifacts\\validation-standard\\desc-routed-anchor-bge200\\outputs\\holdout_predictions.csv",
+  "rewritten_rows": 196,
+  "policy_count": 17,
+  "hash_routed_policies": [
+    {
+      "tag": "accounting error",
+      "subtag": "state update inconsistency"
+    },
+    {
+      "tag": "input validation",
+      "subtag": "invalid validation"
+    },
+    {
+      "tag": "reentrancy",
+      "subtag": "violating cei / missing nonreentrant"
+    }
+  ]
+}

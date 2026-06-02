@@ -1,0 +1,55 @@
+{
+  "mode": "safe",
+  "repo_base_count_max": 3,
+  "base_path": "outputs/submission_v3.csv",
+  "extra_path": "outputs/submission_v4.csv",
+  "base_non_padding_rows": 368,
+  "extra_non_padding_rows": 392,
+  "added_rows": 4,
+  "selected_non_padding_rows": 372,
+  "unique_repos_with_additions": 3,
+  "allowlist": [
+    {
+      "tag": "Accounting Error",
+      "subtag": "State Update Inconsistency"
+    },
+    {
+      "tag": "Arithmetic",
+      "subtag": "Token Decimal"
+    },
+    {
+      "tag": "DoS",
+      "subtag": "Bad Condition"
+    },
+    {
+      "tag": "Governance",
+      "subtag": "Bad Condition"
+    },
+    {
+      "tag": "Logic Error",
+      "subtag": "Implementation Error"
+    }
+  ],
+  "added_pair_counts": [
+    {
+      "tag": "Logic Error",
+      "subtag": "Implementation Error",
+      "count": 2
+    },
+    {
+      "tag": "DoS",
+      "subtag": "Bad Condition",
+      "count": 1
+    },
+    {
+      "tag": "Governance",
+      "subtag": "Bad Condition",
+      "count": 1
+    }
+  ],
+  "skipped": {
+    "duplicate": 335,
+    "not_allowlisted": 46,
+    "repo_cap": 7
+  }
+}

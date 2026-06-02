@@ -1,0 +1,37 @@
+services:
+  baseline:
+    build: .
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    command:
+      [
+        "python",
+        "src/baseline.py",
+        "--train-csv",
+        "train.csv",
+        "--test-csv",
+        "test.csv",
+        "--sample-submission",
+        "submission_example.csv",
+        "--output",
+        "outputs/submission.csv"
+      ]
+  baseline_v2:
+    build: .
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    command:
+      [
+        "python",
+        "src/baseline_v2.py",
+        "--train-csv",
+        "train.csv",
+        "--test-csv",
+        "test.csv",
+        "--sample-submission",
+        "submission_example.csv",
+        "--output",
+        "outputs/submission_v2.csv"
+      ]

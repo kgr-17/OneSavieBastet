@@ -1,0 +1,401 @@
+Property,repo_path,severity,tag,subtag,description
+1,d562802cb53a,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+2,73f6a793d916,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+3,9ddd6b83c27e,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+4,e169bbefc6e2,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+5,592eed5791df,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+6,9befb133ee74,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+7,dd17040a53bc,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+8,9cc1dc4ae06a,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+9,a8884f87db1a,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+10,1d8f1f43cde9,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+11,afa60bc8003d,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+12,b155c4de6012,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+13,af8e4af75dc2,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+14,7100a75d6ebd,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+15,40cc38c69cca,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+16,51c6dc5fd57f,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+17,a3e15237ea08,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+18,a4d91fb1550f,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+19,b2a8c124d062,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+20,e99e64a8abf1,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+21,103f39b0f29b,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+22,97843b77b287,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+23,c20104cb90d7,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+24,d562802cb53a,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+25,7bbe3d81960c,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+26,ee25ec7abd40,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+27,73f6a793d916,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+28,9ddd6b83c27e,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+29,e169bbefc6e2,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+30,2c5e13b4e147,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+31,03196f805abb,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+32,099243e83259,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+33,592eed5791df,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+34,0315ba9d8121,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+35,e0d2d83ea351,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+36,e7921851ec01,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+37,103f39b0f29b,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+38,97843b77b287,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+39,9befb133ee74,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+40,dd17040a53bc,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+41,fa1836e0615e,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+42,d562802cb53a,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+43,9cc1dc4ae06a,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+44,a8884f87db1a,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+45,1167ec3a176e,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+46,4ef0b4d678ab,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+47,bb3018c8812c,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+48,e6e43dfea59f,Medium,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+49,73f6a793d916,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+50,9ddd6b83c27e,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+51,e169bbefc6e2,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+52,1d8f1f43cde9,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+53,afa60bc8003d,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+54,b155c4de6012,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+55,592eed5791df,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+56,9befb133ee74,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+57,98b7c1691811,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+58,a1ee58021528,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+59,af8e4af75dc2,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+60,a8884f87db1a,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+61,03196f805abb,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+62,099243e83259,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+63,7100a75d6ebd,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+64,1d8f1f43cde9,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+65,b155c4de6012,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+66,03196f805abb,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+67,099243e83259,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+68,103f39b0f29b,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+69,40cc38c69cca,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+70,51c6dc5fd57f,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+71,a3e15237ea08,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+72,a4d91fb1550f,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+73,103f39b0f29b,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+74,d562802cb53a,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+75,348856fe60ac,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+76,8f18f7d5c396,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+77,9470d2cf198f,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+78,b7fc4d82013a,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+79,ba93b3b8d7cf,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+80,b2a8c124d062,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+81,e99e64a8abf1,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+82,73f6a793d916,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+83,9ddd6b83c27e,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+84,d562802cb53a,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+85,e169bbefc6e2,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+86,9470d2cf198f,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+87,98b7c1691811,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+88,a1ee58021528,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+89,ba93b3b8d7cf,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+90,c20104cb90d7,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+91,7100a75d6ebd,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+92,592eed5791df,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+93,73f6a793d916,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+94,9ddd6b83c27e,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+95,e169bbefc6e2,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+96,98b7c1691811,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+97,a1ee58021528,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+98,7bbe3d81960c,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+99,ee25ec7abd40,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+100,40cc38c69cca,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+101,51c6dc5fd57f,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+102,a4d91fb1550f,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+103,592eed5791df,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+104,9befb133ee74,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+105,03196f805abb,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+106,099243e83259,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+107,2c5e13b4e147,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+108,b2a8c124d062,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+109,9befb133ee74,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+110,a8884f87db1a,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+111,03196f805abb,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+112,099243e83259,Medium,Arithmetic,Precision Loss,"Arithmetic and unit-conversion logic may not preserve protocol invariants. Precision loss, unsafe casting, or rounding issues can skew balances, prices, or share accounting and create exploitable value discrepancies over time."
+113,103f39b0f29b,Medium,DoS,Out of Gas,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+114,0315ba9d8121,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+115,e0d2d83ea351,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+116,e7921851ec01,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+117,c20104cb90d7,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+118,348856fe60ac,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+119,8f18f7d5c396,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+120,b7fc4d82013a,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+121,1d8f1f43cde9,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+122,a8884f87db1a,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+123,b155c4de6012,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+124,fa1836e0615e,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+125,7bbe3d81960c,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+126,ee25ec7abd40,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+127,9470d2cf198f,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+128,ba93b3b8d7cf,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+129,1d8f1f43cde9,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+130,b155c4de6012,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+131,1167ec3a176e,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+132,4ef0b4d678ab,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+133,bb3018c8812c,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+134,e6e43dfea59f,Medium,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+135,2c5e13b4e147,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+136,98b7c1691811,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+137,a1ee58021528,Medium,Access Control,Centralization Risk,"Sensitive functionality may rely on weak privilege checks or an overly centralized control path. An unauthorized actor, compromised privileged key, or excessive admin power could change critical parameters, pause operations, or redirect value in ways users cannot prevent."
+138,0315ba9d8121,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+139,e0d2d83ea351,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+140,27c6f2a68058,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+141,7b5e1803022e,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+142,8a20eb1e521f,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+143,7100a75d6ebd,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+144,fa1836e0615e,Medium,DoS,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+145,40cc38c69cca,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+146,51c6dc5fd57f,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+147,7100a75d6ebd,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+148,a4d91fb1550f,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+149,348856fe60ac,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+150,b7fc4d82013a,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+151,40cc38c69cca,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+152,a4d91fb1550f,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+153,b2a8c124d062,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+154,9470d2cf198f,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+155,ba93b3b8d7cf,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+156,b2a8c124d062,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+157,c20104cb90d7,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+158,98b7c1691811,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+159,a1ee58021528,High,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+160,7bbe3d81960c,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+161,c20104cb90d7,Medium,"DoS, Input Validation",Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+162,ee25ec7abd40,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+163,0315ba9d8121,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+164,198fa93fabdd,High,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+165,2c5e13b4e147,Medium,Logic Error,Implementation Error,"The repository likely contains a Logic Error issue consistent with Implementation Error behavior. A flaw in validation, execution flow, or state handling can allow unintended behavior, blocked execution, or value loss under adversarial conditions."
+166,485f7b9ccb0a,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+167,4ef0b4d678ab,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+168,54405135ebf3,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+169,7bbe3d81960c,Medium,ERC20,Fee On Transfer Token,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+170,804fe35b0164,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+171,bb3018c8812c,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+172,c2426a2ab283,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+173,d9b35c0c87a4,High,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+174,e0d2d83ea351,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+175,e6e43dfea59f,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+176,ee25ec7abd40,Medium,ERC20,Fee On Transfer Token,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+177,fa1836e0615e,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+178,fee749ecd513,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+179,2c5e13b4e147,High,Input Validation,Invalid Validation,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+180,198fa93fabdd,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+181,27c6f2a68058,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+182,485f7b9ccb0a,Medium,Input Validation,"Bypass Mechanism, Invalid Validation","A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+183,4ef0b4d678ab,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+184,54405135ebf3,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+185,7b5e1803022e,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+186,804fe35b0164,High,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+187,8a20eb1e521f,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+188,bb3018c8812c,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+189,c2426a2ab283,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+190,d9b35c0c87a4,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+191,e0d2d83ea351,Medium,Logic Error,Implementation Error,"The repository likely contains a Logic Error issue consistent with Implementation Error behavior. A flaw in validation, execution flow, or state handling can allow unintended behavior, blocked execution, or value loss under adversarial conditions."
+192,e6e43dfea59f,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+193,fa1836e0615e,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+194,fee749ecd513,Medium,Input Validation,"Bypass Mechanism, Invalid Validation","A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+195,198fa93fabdd,Medium,Input Validation,"Bypass Mechanism, Invalid Validation","A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+196,27c6f2a68058,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+197,485f7b9ccb0a,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+198,7b5e1803022e,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+199,804fe35b0164,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+200,8a20eb1e521f,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+201,bb3018c8812c,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+202,d9b35c0c87a4,Medium,Input Validation,"Bypass Mechanism, Invalid Validation","A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+203,e6e43dfea59f,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+204,fee749ecd513,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+205,198fa93fabdd,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+206,27c6f2a68058,High,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+207,348856fe60ac,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+208,485f7b9ccb0a,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+209,7b5e1803022e,High,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+210,804fe35b0164,Medium,Input Validation,"Bypass Mechanism, Invalid Validation","A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+211,8a20eb1e521f,High,Accounting Error,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+212,b7fc4d82013a,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+213,d9b35c0c87a4,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+214,fee749ecd513,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+215,198fa93fabdd,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+216,27c6f2a68058,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+217,348856fe60ac,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+218,485f7b9ccb0a,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+219,7b5e1803022e,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+220,804fe35b0164,Medium,Access Control,State Update Inconsistency,"Internal accounting appears vulnerable to inconsistent state updates. If balances, shares, debt, or reward variables are updated with stale assumptions or in the wrong order, users can receive incorrect value and protocol accounting can drift from reality."
+221,8a20eb1e521f,Medium,DoS,payable / receive(),"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+222,9470d2cf198f,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+223,b7fc4d82013a,High,Accounting Error,Incorrect Parameter,"A critical input, address, signature, or externally derived value may be used without sufficient validation. Malformed parameters or unexpected states can pass checks and lead to unauthorized behavior, broken execution paths, or incorrect asset movement."
+224,ba93b3b8d7cf,High,Logic Error,Bad Condition,"Core contract flows may be blocked by a reachable failure condition or a gas-heavy execution path. Under specific inputs or state growth, normal operations can revert or become impractical to execute, creating a denial-of-service risk for users."
+225,d9b35c0c87a4,Medium,ERC20,safeApprove,"Token integration logic may assume standard ERC20 behavior when the asset does not behave as expected. Missing return-value checks, fee-on-transfer behavior, or approval edge cases can break accounting and leave transfers or approvals in an unsafe state."
+226,fee749ecd513,Medium,Reentrancy,Violating CEI / Missing nonReentrant,"The repository likely allows external control flow to re-enter sensitive logic before state updates are finalized. If value transfers or callback-enabled token interactions occur before critical accounting changes, an attacker may repeat actions, bypass intended sequencing, or drain funds."
+227,empty,empty,empty,empty,empty
+228,empty,empty,empty,empty,empty
+229,empty,empty,empty,empty,empty
+230,empty,empty,empty,empty,empty
+231,empty,empty,empty,empty,empty
+232,empty,empty,empty,empty,empty
+233,empty,empty,empty,empty,empty
+234,empty,empty,empty,empty,empty
+235,empty,empty,empty,empty,empty
+236,empty,empty,empty,empty,empty
+237,empty,empty,empty,empty,empty
+238,empty,empty,empty,empty,empty
+239,empty,empty,empty,empty,empty
+240,empty,empty,empty,empty,empty
+241,empty,empty,empty,empty,empty
+242,empty,empty,empty,empty,empty
+243,empty,empty,empty,empty,empty
+244,empty,empty,empty,empty,empty
+245,empty,empty,empty,empty,empty
+246,empty,empty,empty,empty,empty
+247,empty,empty,empty,empty,empty
+248,empty,empty,empty,empty,empty
+249,empty,empty,empty,empty,empty
+250,empty,empty,empty,empty,empty
+251,empty,empty,empty,empty,empty
+252,empty,empty,empty,empty,empty
+253,empty,empty,empty,empty,empty
+254,empty,empty,empty,empty,empty
+255,empty,empty,empty,empty,empty
+256,empty,empty,empty,empty,empty
+257,empty,empty,empty,empty,empty
+258,empty,empty,empty,empty,empty
+259,empty,empty,empty,empty,empty
+260,empty,empty,empty,empty,empty
+261,empty,empty,empty,empty,empty
+262,empty,empty,empty,empty,empty
+263,empty,empty,empty,empty,empty
+264,empty,empty,empty,empty,empty
+265,empty,empty,empty,empty,empty
+266,empty,empty,empty,empty,empty
+267,empty,empty,empty,empty,empty
+268,empty,empty,empty,empty,empty
+269,empty,empty,empty,empty,empty
+270,empty,empty,empty,empty,empty
+271,empty,empty,empty,empty,empty
+272,empty,empty,empty,empty,empty
+273,empty,empty,empty,empty,empty
+274,empty,empty,empty,empty,empty
+275,empty,empty,empty,empty,empty
+276,empty,empty,empty,empty,empty
+277,empty,empty,empty,empty,empty
+278,empty,empty,empty,empty,empty
+279,empty,empty,empty,empty,empty
+280,empty,empty,empty,empty,empty
+281,empty,empty,empty,empty,empty
+282,empty,empty,empty,empty,empty
+283,empty,empty,empty,empty,empty
+284,empty,empty,empty,empty,empty
+285,empty,empty,empty,empty,empty
+286,empty,empty,empty,empty,empty
+287,empty,empty,empty,empty,empty
+288,empty,empty,empty,empty,empty
+289,empty,empty,empty,empty,empty
+290,empty,empty,empty,empty,empty
+291,empty,empty,empty,empty,empty
+292,empty,empty,empty,empty,empty
+293,empty,empty,empty,empty,empty
+294,empty,empty,empty,empty,empty
+295,empty,empty,empty,empty,empty
+296,empty,empty,empty,empty,empty
+297,empty,empty,empty,empty,empty
+298,empty,empty,empty,empty,empty
+299,empty,empty,empty,empty,empty
+300,empty,empty,empty,empty,empty
+301,empty,empty,empty,empty,empty
+302,empty,empty,empty,empty,empty
+303,empty,empty,empty,empty,empty
+304,empty,empty,empty,empty,empty
+305,empty,empty,empty,empty,empty
+306,empty,empty,empty,empty,empty
+307,empty,empty,empty,empty,empty
+308,empty,empty,empty,empty,empty
+309,empty,empty,empty,empty,empty
+310,empty,empty,empty,empty,empty
+311,empty,empty,empty,empty,empty
+312,empty,empty,empty,empty,empty
+313,empty,empty,empty,empty,empty
+314,empty,empty,empty,empty,empty
+315,empty,empty,empty,empty,empty
+316,empty,empty,empty,empty,empty
+317,empty,empty,empty,empty,empty
+318,empty,empty,empty,empty,empty
+319,empty,empty,empty,empty,empty
+320,empty,empty,empty,empty,empty
+321,empty,empty,empty,empty,empty
+322,empty,empty,empty,empty,empty
+323,empty,empty,empty,empty,empty
+324,empty,empty,empty,empty,empty
+325,empty,empty,empty,empty,empty
+326,empty,empty,empty,empty,empty
+327,empty,empty,empty,empty,empty
+328,empty,empty,empty,empty,empty
+329,empty,empty,empty,empty,empty
+330,empty,empty,empty,empty,empty
+331,empty,empty,empty,empty,empty
+332,empty,empty,empty,empty,empty
+333,empty,empty,empty,empty,empty
+334,empty,empty,empty,empty,empty
+335,empty,empty,empty,empty,empty
+336,empty,empty,empty,empty,empty
+337,empty,empty,empty,empty,empty
+338,empty,empty,empty,empty,empty
+339,empty,empty,empty,empty,empty
+340,empty,empty,empty,empty,empty
+341,empty,empty,empty,empty,empty
+342,empty,empty,empty,empty,empty
+343,empty,empty,empty,empty,empty
+344,empty,empty,empty,empty,empty
+345,empty,empty,empty,empty,empty
+346,empty,empty,empty,empty,empty
+347,empty,empty,empty,empty,empty
+348,empty,empty,empty,empty,empty
+349,empty,empty,empty,empty,empty
+350,empty,empty,empty,empty,empty
+351,empty,empty,empty,empty,empty
+352,empty,empty,empty,empty,empty
+353,empty,empty,empty,empty,empty
+354,empty,empty,empty,empty,empty
+355,empty,empty,empty,empty,empty
+356,empty,empty,empty,empty,empty
+357,empty,empty,empty,empty,empty
+358,empty,empty,empty,empty,empty
+359,empty,empty,empty,empty,empty
+360,empty,empty,empty,empty,empty
+361,empty,empty,empty,empty,empty
+362,empty,empty,empty,empty,empty
+363,empty,empty,empty,empty,empty
+364,empty,empty,empty,empty,empty
+365,empty,empty,empty,empty,empty
+366,empty,empty,empty,empty,empty
+367,empty,empty,empty,empty,empty
+368,empty,empty,empty,empty,empty
+369,empty,empty,empty,empty,empty
+370,empty,empty,empty,empty,empty
+371,empty,empty,empty,empty,empty
+372,empty,empty,empty,empty,empty
+373,empty,empty,empty,empty,empty
+374,empty,empty,empty,empty,empty
+375,empty,empty,empty,empty,empty
+376,empty,empty,empty,empty,empty
+377,empty,empty,empty,empty,empty
+378,empty,empty,empty,empty,empty
+379,empty,empty,empty,empty,empty
+380,empty,empty,empty,empty,empty
+381,empty,empty,empty,empty,empty
+382,empty,empty,empty,empty,empty
+383,empty,empty,empty,empty,empty
+384,empty,empty,empty,empty,empty
+385,empty,empty,empty,empty,empty
+386,empty,empty,empty,empty,empty
+387,empty,empty,empty,empty,empty
+388,empty,empty,empty,empty,empty
+389,empty,empty,empty,empty,empty
+390,empty,empty,empty,empty,empty
+391,empty,empty,empty,empty,empty
+392,empty,empty,empty,empty,empty
+393,empty,empty,empty,empty,empty
+394,empty,empty,empty,empty,empty
+395,empty,empty,empty,empty,empty
+396,empty,empty,empty,empty,empty
+397,empty,empty,empty,empty,empty
+398,empty,empty,empty,empty,empty
+399,empty,empty,empty,empty,empty
+400,empty,empty,empty,empty,empty

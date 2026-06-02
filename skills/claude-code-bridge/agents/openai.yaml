@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Claude Code Bridge"
+  short_description: "Bridge tasks between Codex and Claude Code in this repo."
+  default_prompt: "Use $claude-code-bridge to create or read a collaboration task for Claude Code in this repository."

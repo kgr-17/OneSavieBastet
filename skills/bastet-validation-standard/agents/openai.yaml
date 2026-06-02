@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Bastet Validation Standard"
+  short_description: "Shared 50% repo-holdout validation gate for Bastet experiments."
+  default_prompt: "Use $bastet-validation-standard to run the shared Bastet validation gate before a Kaggle submission."

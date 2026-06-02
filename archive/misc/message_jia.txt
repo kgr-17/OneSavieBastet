@@ -1,0 +1,323 @@
+import pandas as pd
+import numpy as np
+from collections import defaultdict, Counter
+
+# ============================================================
+# 1. 加载所有 submission
+# ============================================================
+
+submissions = {
+    'v9': {'path': 'first_achieve_v9.csv', 'score': 125.88},
+    'v7': {'path': 'first_achieve_v7.csv', 'score': 122.06},
+    'repo_adapted': {'path': 'submission_repo_adapted.csv', 'score': 109.16},
+    'v8': {'path': 'first_achieve_v8.csv', 'score': 104.03},
+    'submission': {'path': 'submission.csv', 'score': 88.59},
+    'v2': {'path': 'submission_v2.csv', 'score': 81.18},
+    'v5': {'path': 'first_achieve_v5.csv', 'score': 63.05},
+    'v10': {'path': 'first_achieve_v10.csv', 'score': 52.33},
+    'fork1': {'path': 'fork_first_achieve_v1.csv', 'score': 43.25},
+}
+
+# 加载所有 CSV
+for name, info in submissions.items():
+    try:
+        info['df'] = pd.read_csv(info['path'])
+        print(f"Loaded {name}: {len(info['df'])} rows, score={info['score']}")
+    except:
+        print(f"Failed to load {name}")
+        info['df'] = None
+
+
+# ============================================================
+# 2. 分析：哪些发现在高分 submission 中出现？
+# ============================================================
+
+def create_finding_key(row):
+    """创建发现的唯一标识"""
+    return (
+        str(row['repo_id']),
+        str(row['tag']),
+        str(row['subtag'])
+    )
+
+def analyze_submissions(submissions):
+    """分析所有 submission 的发现"""
+    
+    # 按分数排序
+    sorted_subs = sorted(submissions.items(), key=lambda x: -x[1]['score'])
+    
+    # 统计每个发现出现在哪些 submission 中
+    finding_appearances = defaultdict(list)  # key -> [(sub_name, score), ...]
+    
+    for name, info in sorted_subs:
+        df = info['df']
+        if df is None:
+            continue
+        
+        for _, row in df.iterrows():
+            key = create_finding_key(row)
+            finding_appearances[key].append({
+                'submission': name,
+                'score': info['score'],
+                'severity': row.get('severity', 'Medium'),
+                'description': row.get('description', '')
+            })
+    
+    return finding_appearances, sorted_subs
+
+finding_appearances, sorted_subs = analyze_submissions(submissions)
+
+print(f"\n总共 {len(finding_appearances)} 个唯一发现")
+
+
+# ============================================================
+# 3. 计算每个发现的"可信度分数"
+# ============================================================
+
+def calculate_finding_credibility(appearances):
+    """
+    计算发现的可信度：
+    - 出现在高分 submission 中 → 加分
+    - 出现在低分 submission 中 → 轻微加分
+    - 出现次数多 → 加分
+    - 只出现在低分 submission → 可能是误报
+    """
+    
+    if not appearances:
+        return 0
+    
+    # 基础分：出现次数
+    count_score = min(1.0, len(appearances) * 0.15)
+    
+    # 加权分数（高分 submission 权重高）
+    weighted_score = 0
+    max_possible = 0
+    
+    for app in appearances:
+        sub_score = app['score']
+        # 归一化到 0-1（假设分数范围 40-130）
+        normalized = (sub_score - 40) / 90
+        weighted_score += normalized
+        max_possible += 1
+    
+    weighted_score = weighted_score / max_possible if max_possible > 0 else 0
+    
+    # 是否出现在 top 2 高分 submission 中
+    top_bonus = 0
+    scores = [app['score'] for app in appearances]
+    if any(s >= 122 for s in scores):  # 出现在 v7 或 v9
+        top_bonus = 0.3
+    elif any(s >= 104 for s in scores):  # 出现在前4
+        top_bonus = 0.15
+    
+    # 如果只出现在低分 submission，惩罚
+    low_penalty = 0
+    if all(s < 90 for s in scores):
+        low_penalty = 0.2
+    
+    credibility = count_score + weighted_score * 0.5 + top_bonus - low_penalty
+    
+    return min(1.0, max(0.0, credibility))
+
+
+# 计算所有发现的可信度
+finding_credibility = {}
+for key, appearances in finding_appearances.items():
+    finding_credibility[key] = calculate_finding_credibility(appearances)
+
+# 排序查看
+sorted_findings = sorted(finding_credibility.items(), key=lambda x: -x[1])
+
+print("\n=== Top 20 最可信的发现 ===")
+for (repo_id, tag, subtag), cred in sorted_findings[:20]:
+    appearances = finding_appearances[(repo_id, tag, subtag)]
+    sub_names = [a['submission'] for a in appearances]
+    print(f"  {repo_id[:20]:20} | {tag:20} | {subtag:25} | cred={cred:.3f} | in: {sub_names}")
+
+print("\n=== Bottom 20 最不可信的发现 ===")
+for (repo_id, tag, subtag), cred in sorted_findings[-20:]:
+    appearances = finding_appearances[(repo_id, tag, subtag)]
+    sub_names = [a['submission'] for a in appearances]
+    print(f"  {repo_id[:20]:20} | {tag:20} | {subtag:25} | cred={cred:.3f} | in: {sub_names}")
+
+
+# ============================================================
+# 4. 生成最优 submission：基于投票的集成
+# ============================================================
+
+def generate_ensemble_submission(finding_appearances, finding_credibility, 
+                                  submissions, target_rows=400):
+    """
+    生成集成 submission：
+    1. 优先选择高可信度的发现
+    2. 使用最高分 submission 的 description
+    3. 确保行数接近目标
+    """
+    
+    # 按可信度排序所有发现
+    sorted_findings = sorted(finding_credibility.items(), key=lambda x: -x[1])
+    
+    # 选择发现
+    selected = []
+    repo_counts = defaultdict(int)
+    MAX_PER_REPO = 12
+    MIN_PER_REPO = 2
+    
+    # 获取所有 repo
+    all_repos = set()
+    for (repo_id, _, _), _ in sorted_findings:
+        all_repos.add(repo_id)
+    
+    # Phase 1: 每个 repo 至少选 MIN_PER_REPO 个高可信度发现
+    for repo_id in all_repos:
+        repo_findings = [(k, c) for k, c in sorted_findings 
+                        if k[0] == repo_id and c >= 0.3]
+        repo_findings.sort(key=lambda x: -x[1])
+        
+        for key, cred in repo_findings[:MIN_PER_REPO]:
+            if key not in [s[0] for s in selected]:
+                selected.append((key, cred))
+                repo_counts[repo_id] += 1
+    
+    # Phase 2: 填充到目标数量
+    for key, cred in sorted_findings:
+        if len(selected) >= target_rows:
+            break
+        
+        repo_id = key[0]
+        if key in [s[0] for s in selected]:
+            continue
+        
+        if repo_counts[repo_id] >= MAX_PER_REPO:
+            continue
+        
+        if cred >= 0.25:  # 最低可信度阈值
+            selected.append((key, cred))
+            repo_counts[repo_id] += 1
+    
+    # Phase 3: 如果还不够，降低阈值
+    if len(selected) < target_rows:
+        for key, cred in sorted_findings:
+            if len(selected) >= target_rows:
+                break
+            
+            repo_id = key[0]
+            if key in [s[0] for s in selected]:
+                continue
+            
+            if repo_counts[repo_id] >= MAX_PER_REPO:
+                continue
+            
+            selected.append((key, cred))
+            repo_counts[repo_id] += 1
+    
+    print(f"\nSelected {len(selected)} findings")
+    print(f"Repo distribution: min={min(repo_counts.values())}, max={max(repo_counts.values())}, "
+          f"mean={np.mean(list(repo_counts.values())):.1f}")
+    
+    # 生成 DataFrame
+    rows = []
+    for key, cred in selected:
+        repo_id, tag, subtag = key
+        appearances = finding_appearances[key]
+        
+        # 使用最高分 submission 的 description 和 severity
+        best_app = max(appearances, key=lambda x: x['score'])
+        
+        rows.append({
+            'repo_id': repo_id,
+            'tag': tag,
+            'subtag': subtag,
+            'severity': best_app['severity'],
+            'description': best_app['description'],
+            '_credibility': cred,
+            '_appeared_in': len(appearances)
+        })
+    
+    return pd.DataFrame(rows)
+
+
+ensemble_df = generate_ensemble_submission(
+    finding_appearances, 
+    finding_credibility,
+    submissions,
+    target_rows=400
+)
+
+print(f"\nEnsemble submission shape: {ensemble_df.shape}")
+
+
+# ============================================================
+# 5. 分析不同 submission 的差异
+# ============================================================
+
+def analyze_differences(submissions):
+    """分析高分和低分 submission 的差异"""
+    
+    # 获取 top 2 和 bottom 2
+    sorted_subs = sorted(submissions.items(), key=lambda x: -x[1]['score'])
+    top_subs = [s for s in sorted_subs[:2] if s[1]['df'] is not None]
+    bottom_subs = [s for s in sorted_subs[-2:] if s[1]['df'] is not None]
+    
+    print("\n=== Tag 分布对比 ===")
+    
+    # Top submissions 的 tag 分布
+    top_tags = Counter()
+    for name, info in top_subs:
+        for tag in info['df']['tag'].values:
+            top_tags[tag] += 1
+    
+    # Bottom submissions 的 tag 分布
+    bottom_tags = Counter()
+    for name, info in bottom_subs:
+        for tag in info['df']['tag'].values:
+            bottom_tags[tag] += 1
+    
+    all_tags = set(top_tags.keys()) | set(bottom_tags.keys())
+    
+    print(f"{'Tag':<25} | {'Top 2':>8} | {'Bottom 2':>8} | {'Diff':>8}")
+    print("-" * 60)
+    
+    tag_diff = []
+    for tag in all_tags:
+        top_count = top_tags.get(tag, 0)
+        bottom_count = bottom_tags.get(tag, 0)
+        diff = top_count - bottom_count
+        tag_diff.append((tag, top_count, bottom_count, diff))
+    
+    tag_diff.sort(key=lambda x: -x[3])
+    
+    for tag, top_c, bot_c, diff in tag_diff:
+        indicator = "✓" if diff > 5 else ("✗" if diff < -5 else "")
+        print(f"{tag:<25} | {top_c:>8} | {bot_c:>8} | {diff:>+8} {indicator}")
+    
+    # 行数对比
+    print("\n=== 行数对比 ===")
+    for name, info in sorted_subs:
+        if info['df'] is not None:
+            print(f"  {name}: {len(info['df'])} rows, score={info['score']}")
+    
+    return top_tags, bottom_tags
+
+top_tags, bottom_tags = analyze_differences(submissions)
+
+
+# ============================================================
+# 6. 保存最终结果
+# ============================================================
+
+# 移除内部列
+final_df = ensemble_df[['repo_id', 'tag', 'subtag', 'severity', 'description']].copy()
+
+# 保存
+final_df.to_csv('ensemble_submission.csv', index=False)
+print(f"\nSaved ensemble_submission.csv with {len(final_df)} rows")
+
+# 统计
+print("\n=== Final Submission Stats ===")
+print(f"Total rows: {len(final_df)}")
+print(f"Unique repos: {final_df['repo_id'].nunique()}")
+print(f"\nTag distribution:")
+print(final_df['tag'].value_counts().head(15))
+print(f"\nSeverity distribution:")
+print(final_df['severity'].value_counts())

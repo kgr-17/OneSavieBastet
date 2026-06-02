@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Local Claude / IDE state
+.claude/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Agent bridge — local async coordination, not for public repo
+bridges/
+
+# Outputs and artifacts (regenerable)
+outputs/
+artifacts/
+
+# Logs
+*.log

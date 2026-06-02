@@ -1,0 +1,78 @@
+**Terms**
+`P` = precision. Of the things the agent predicted, how many were correct.  
+Formula: `matched / predicted`.
+
+`R` = recall. Of the things that were truly present, how many the agent found.  
+Formula: `matched / truth`.
+
+`F1` = harmonic mean of precision and recall. It balances “don’t overpredict” and “don’t miss things.”  
+Formula: `2PR / (P + R)`.
+
+`predicted_row_count` = raw number of emitted holdout predictions.
+
+`predicted_count` = deduplicated evaluation signatures after collapsing rows into the scorer’s comparison key.
+
+`truth_count` = number of ground-truth evaluation signatures on the holdout side.
+
+`matched_count` = number of predicted signatures that matched the normalized truth.
+
+`repo+severity+tag` = strict local metric. A prediction only matches if repo, severity, and tag all line up.
+
+`repo+tag` = looser family metric. A prediction matches if repo and tag line up, even if severity differs.
+
+**Current Performance Report**
+Source: [holdout_evaluation_report.json](/home/matseoi/workstation/security/smart-contract-agent/onesavie_bastet/artifacts/runs/holdout_802_input_cross2/holdout_evaluation_report.json) and [holdout_evaluation_summary.txt](/home/matseoi/workstation/security/smart-contract-agent/onesavie_bastet/artifacts/runs/holdout_802_input_cross2/holdout_evaluation_summary.txt).
+
+Setup:
+- Repo-level `80/20` train holdout
+- Seed: `1337`
+- Holdout repos: `11`
+- Predicted repos covered: `11/11`
+
+Raw output:
+- Raw predicted rows: `71`
+- Normalized truth family rows: `77`
+
+Main scores:
+- Strict `repo+severity+tag`: `P=0.4828`, `R=0.3636`, `F1=0.4148`
+- Family `repo+tag`: `P=0.5370`, `R=0.5088`, `F1=0.5225`
+
+What those counts mean:
+- Strict metric used `58` deduped predicted signatures
+- Strict matched `28` of `77` truth signatures
+- Family metric used `54` deduped predicted signatures
+- Family matched `29` of `57` truth signatures
+
+Category breakdown:
+- `Input Validation`: `P=0.4375`, `R=0.7778`
+- `Cross-Chain`: `P=1.0`, `R=0.5`
+- `Arithmetic`: `P=0.4167`, `R=0.8333`
+- `Accounting Error`: `P=0.5714`, `R=0.3077`
+- `Logic Error`: `P=0.3636`, `R=0.5`
+- `Reentrancy`: `P=0.0`, `R=0.0`
+- `Liquidation`: `P=0.0`, `R=0.0`
+- `Oracle`: `P=0.0`, `R=0.0`
+
+Per-repo highlights:
+- Stronger holdout repos:
+  - [29aba850d512](/home/matseoi/workstation/security/smart-contract-agent/onesavie_bastet/artifacts/runs/holdout_802_input_cross2/repos/29aba850d512/repo_findings.json): `6` strict matches
+  - [1be7a2863fe1](/home/matseoi/workstation/security/smart-contract-agent/onesavie_bastet/artifacts/runs/holdout_802_input_cross2/repos/1be7a2863fe1/repo_findings.json): `4` strict matches, `6` family matches
+- Weaker holdout repos:
+  - `fccd852beaa3`: `1` strict match out of `16` truth-family rows
+  - `966f040d9bc8`: `1` strict match out of `4`
+
+Trend versus the earlier verifier baseline:
+- Strict F1 improved from `0.3459` to `0.4148`
+- Family F1 improved from `0.4956` to `0.5225`
+
+Plain-English interpretation:
+- The agent is now decent at finding the right vulnerability family at the repo level.
+- It is especially improved on `Input Validation` and now catches some `Cross-Chain`.
+- It still misses important families like `Reentrancy`, `Liquidation`, and `Oracle`.
+- Precision is better than before, but recall is still moderate on the strict metric.
+
+Important caveat:
+- This is a useful local tuning score, not the exact competition leaderboard score.
+- The train labels are noisy; `5` truth rows could not be normalized cleanly in [holdout_evaluation_report.json](/home/matseoi/workstation/security/smart-contract-agent/onesavie_bastet/artifacts/runs/holdout_802_input_cross2/holdout_evaluation_report.json).
+
+If you want, I can turn this into a one-page milestone scoreboard comparing `verifier1`, `input_cross1`, and `input_cross2`.

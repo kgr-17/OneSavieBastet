@@ -25,7 +25,7 @@ TEST_CSV = "test.csv"
 C4_REPORTS = "artifacts/c4_reports"
 TEST_MAP_FILE = "artifacts/test_hash_to_contest_v3.json"
 TRAIN_MAP_FILE = "artifacts/train_hash_to_contest_v3.json"
-OUT = "outputs/submission_c4_v1.csv"
+OUT = "outputs/submission_c4_v2.csv"
 
 # Match a finding header: "## [[H-00] title](url)" or "## [H-00] title"
 FINDING_RE = re.compile(r"^##\s+\[?\[?([HM])-(\d+)\]\s+(.+?)\]?(?:\(.*?\))?$", re.MULTILINE)
@@ -199,22 +199,14 @@ def main():
     unidentified = [r for r in test_repos if r not in test_map or not test_map[r].get("contest")]
     print(f"Test repos without confirmed C4 contest: {len(unidentified)}")
 
-    # Step 5: Cap per repo to mitigate the repo-level overprediction penalty. Train
-    # median is ~7 findings/repo, max=33. Cap at 15 (Highs always kept, Mediums capped).
+    # Step 5: Sort globally — Highs first, then Mediums by match_score desc — and keep
+    # the top 400. Empirically (27/36 confirmed train repos), the competition retains
+    # every C4 H+M finding, so a per-repo cap costs us valid predictions for big audits.
     severity_rank = {"High": 0, "Medium": 1}
-    PER_REPO_CAP = 15
     predictions.sort(key=lambda p: (severity_rank.get(p["severity"], 2), -p.get("match_score", 0.0)))
-    seen = defaultdict(int)
-    kept = []
-    for p in predictions:
-        if p["severity"] == "Medium" and seen[p["repo_path"]] >= PER_REPO_CAP:
-            continue
-        seen[p["repo_path"]] += 1
-        kept.append(p)
-        if len(kept) >= 400:
-            break
+    kept = predictions[:400]
     dropped = len(predictions) - len(kept)
-    print(f"Kept {len(kept)} predictions, dropped {dropped} (per-repo Medium cap={PER_REPO_CAP})")
+    print(f"Kept {len(kept)} predictions, dropped {dropped} (no per-repo cap)")
 
     # Step 6: Use remaining slots for unidentified test repos via statistical fallback.
     # Pick the most frequent (severity, tag, subtag, description) combos from train.csv

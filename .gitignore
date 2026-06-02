@@ -26,3 +26,8 @@ artifacts/
 
 # Logs
 *.log
+
+# Competition data (multi-GB, sourced from Azure blob URLs in download-vuln.ipynb)
+*.zip
+data/
+download-vuln.ipynb

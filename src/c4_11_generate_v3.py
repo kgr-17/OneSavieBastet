@@ -21,7 +21,7 @@ C4_REPORTS = "artifacts/c4_reports"
 SHERLOCK_REPORTS = "artifacts/sherlock_reports"
 TEST_MAP_FILE = "artifacts/test_hash_to_contest_v3.json"
 TRAIN_MAP_FILE = "artifacts/train_hash_to_contest_v3.json"
-OUT = "outputs/submission_c4_v3.csv"
+OUT = "outputs/submission_c4_v4.csv"
 
 # Manual mappings filled in based on title hints + subfolder content.
 EXTRA_TEST_MAPPINGS = {
@@ -42,11 +42,38 @@ SHERLOCK_FINDING_RE = re.compile(r"^#\s+Issue\s+([HM])-(\d+)\s*:?\s*(.+?)$", re.
 SUBMITTER_RE = re.compile(r"^\s*\*+Submitted by .*?\*+\s*\n", re.DOTALL)
 
 
-def clean_body(body: str) -> str:
+SHERLOCK_KEEP_SECTIONS = {
+    "summary", "vulnerability detail", "vulnerability details", "impact",
+    "root cause", "attack path", "description",
+}
+
+
+def clean_body(body: str, platform: str = "c4") -> str:
+    """Return the prose part of a finding body. C4 and Sherlock have different layouts."""
     body = SUBMITTER_RE.sub("", body, count=1).lstrip()
-    cut = re.search(r"^###?\s+", body, re.MULTILINE)
-    if cut:
-        body = body[: cut.start()]
+
+    if platform == "sherlock":
+        # Body is split into `## Section` or `### Section` blocks; some Sherlock audits
+        # use `##` for top-level sections and others use `###`. Keep the named sections
+        # that contain prose; drop "Found by" (long warden list), code snippets,
+        # recommendations, discussion. Sections we don't recognize are kept too — better
+        # to over-include prose than chop off the actual finding.
+        parts = re.split(r"^(#{2,3}\s+.+?)$", body, flags=re.MULTILINE)
+        out = []
+        current = None
+        for chunk in parts:
+            if re.match(r"^#{2,3}\s+", chunk):
+                current = re.sub(r"^#+\s+", "", chunk).strip().lower().rstrip(":").strip()
+            elif current is not None:
+                if current in SHERLOCK_KEEP_SECTIONS:
+                    out.append(chunk)
+        body = " ".join(out) if out else body
+    else:
+        # C4: cut at first `### Foo` sub-header to keep just the lead paragraph.
+        cut = re.search(r"^###\s+", body, re.MULTILINE)
+        if cut:
+            body = body[: cut.start()]
+
     body = re.sub(r"```.*?```", " ", body, flags=re.DOTALL)
     body = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", body)
     keep = []
@@ -177,13 +204,14 @@ def main():
             no_finding.append((repo, info["contest"], info.get("platform")))
             continue
         used_repos.add(repo)
+        platform = info.get("platform", "c4")
         for f in findings:
             text = f["title"] + " " + f["body"][:2000]
             qvec = label_vec.transform([text])
             sims = cosine_similarity(qvec, label_mat).flatten()
             best = int(sims.argmax())
             ref = labeled[best]
-            desc = clean_body(f["body"])[:350]
+            desc = clean_body(f["body"], platform)[:350]
             if len(desc) < 30:
                 desc = f["title"] + ". " + ref["train_description"][:300]
             predictions.append({

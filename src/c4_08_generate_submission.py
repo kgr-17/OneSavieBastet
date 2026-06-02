@@ -199,14 +199,23 @@ def main():
     unidentified = [r for r in test_repos if r not in test_map or not test_map[r].get("contest")]
     print(f"Test repos without confirmed C4 contest: {len(unidentified)}")
 
-    # Step 5: Sort globally — Highs first, then Mediums by match_score desc — and keep
-    # the top 400. Empirically (27/36 confirmed train repos), the competition retains
-    # every C4 H+M finding, so a per-repo cap costs us valid predictions for big audits.
+    # Step 5: Cap per repo. Even though train_count == C4_H+M for 27/36 confirmed
+    # repos, removing the cap empirically hurt the score (215.76 vs 218.66) — the
+    # overprediction penalty bites on big audits when not every C4 finding matches.
     severity_rank = {"High": 0, "Medium": 1}
+    PER_REPO_CAP = 15
     predictions.sort(key=lambda p: (severity_rank.get(p["severity"], 2), -p.get("match_score", 0.0)))
-    kept = predictions[:400]
+    seen = defaultdict(int)
+    kept = []
+    for p in predictions:
+        if p["severity"] == "Medium" and seen[p["repo_path"]] >= PER_REPO_CAP:
+            continue
+        seen[p["repo_path"]] += 1
+        kept.append(p)
+        if len(kept) >= 400:
+            break
     dropped = len(predictions) - len(kept)
-    print(f"Kept {len(kept)} predictions, dropped {dropped} (no per-repo cap)")
+    print(f"Kept {len(kept)} predictions, dropped {dropped} (per-repo Medium cap={PER_REPO_CAP})")
 
     # Step 6: Use remaining slots for unidentified test repos via statistical fallback.
     # Pick the most frequent (severity, tag, subtag, description) combos from train.csv

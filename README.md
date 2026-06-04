@@ -58,9 +58,11 @@ submission_example.csv ← Required submission schema
 daily_training_record.md  ← Dev log of experiments and decisions
 ```
 
-## Quick start
+## Quick start (local Python)
 
 ```bash
+pip install -r requirements.txt
+
 # Get the source data (~3 GB).
 python src/pipeline/download_data.py
 cd data && unzip -q train.zip && unzip -q test.zip && cd ..
@@ -76,6 +78,36 @@ python src/pipeline/06_generate_submission.py
 # Validate before uploading.
 python src/validate_submission.py --submission outputs/submission_c4_v4.csv
 ```
+
+## Quick start (Docker)
+
+Requires Docker Desktop. Volumes mount `data/`, `outputs/`, and `artifacts/` so
+fetched reports and generated submissions persist on the host.
+
+```bash
+# Build the image (once)
+docker compose build
+
+# Open a shell inside the container
+docker compose run --rm pipeline
+
+# Inside the container, run any pipeline step:
+python src/pipeline/download_data.py
+python src/pipeline/01_list_c4_repos.py
+# ... etc.
+python src/pipeline/06_generate_submission.py
+```
+
+To run a single step without an interactive shell:
+
+```bash
+docker compose run --rm pipeline python src/pipeline/06_generate_submission.py
+```
+
+The current best submission generator (v5, public score 312.09) lives at
+`src/pipeline/07_generate_v5_with_dataset0831.py`. It additionally requires
+`data/dataset_0831.csv` (teammate's annotation working file — get it from the
+shared Drive folder).
 
 ## Scoring formula
 

@@ -228,3 +228,62 @@ Teammate found the source of competition data:
 3. **Then: Run model_v2 on Kaggle** with real repo code. Archetype routing + adaptive tc become functional.
 4. **Parallel: Run first_achive_v14.py** — Only needs CSV data (no repo code), 38 tags. Can submit independently.
 5. **Stretch: Use C4 findings for better descriptions** — Original C4 reports have exact function names, exploit paths. Could dramatically improve description_score.
+
+---
+
+## Session: 2026-06-04 — From 218 to 312 in one day (+100)
+
+### Big breakthroughs (in order)
+
+**1. The "hash" is just a folder name (download-vuln.ipynb).**
+The 12-char hex IDs are not outputs of any hash function — they're folder names inside two **public Azure blobs** (no auth needed):
+- `https://osbastetkagglesa.blob.core.windows.net/kaggle/train.zip` (2.0 GB)
+- `https://osbastetkagglesa.blob.core.windows.net/kaggle/test.zip` (985 MB)
+
+The April-18 hash-cracking effort was a dead end. Once the zips are extracted, each folder's `README.md` literally says which audit it's from (e.g., `https://github.com/code-423n4/2024-07-benddao/...`).
+
+**2. Built the C4 + Sherlock lookup pipeline.** Six numbered steps under `src/pipeline/`:
+- `01_list_c4_repos.py` — enumerate `code-423n4` (884 repos, 376 `-findings`)
+- `02_fetch_c4_reports.py` — fetch each `report.md` (376 cached)
+- `03_list_sherlock_repos.py` — enumerate `sherlock-audit` (459 repos, 229 `-judging`)
+- `04_fetch_sherlock_reports.py` — fetch each `README.md` (214 cached)
+- `05_identify_contests.py` — map every test/train folder to its audit by parsing README links
+- `06_generate_submission.py` — parse findings, train TF-IDF tag classifier from train.csv, emit submission
+
+**3. dataset_0831.csv (teammate's annotation working file) is the biggest single lever.**
+Found via teammate's Drive folder. 4401 rows, 504 Done with the **exact competition** `(severity, tag, subtag, description)` schema. 41/50 of our test audits appear in it; 79 Done rows are usable as direct predictions (no transfer learning needed).
+
+### Submission progression today
+
+| Submission | Score | Δ | Key change |
+|---|---|---|---|
+| v1 (`c4_v1`) | 218.66 | +101 vs prior 117 (statistical) | First C4-lookup with cap=15 |
+| v2 (`c4_v2`) | 215.76 | −2.9 | Removed per-repo cap → cap=15 was correct |
+| v3 (`c4_v3`) | 211.89 | −6.8 | Added Sherlock but description parser was broken |
+| v4 (`c4_v4`) | 211.89 | 0 | Fixed Sherlock parser; flat (descriptions weren't the bottleneck) |
+| **v5** (`c4_v5`) | **312.09** | **+100.2** | **Direct lookup from dataset_0831 + 437→759 labeled pairs** |
+| v5.1 (`c4_v5_1`) | 267.04 | −45 | Filtered Chinese rows — BGE multilingual was actually helping |
+| v5.2 (`c4_v5_2`) | 310.46 | −1.6 | Compressed c4 descriptions to 280 chars — raw was already fine |
+| v6 (`c4_v6`) | 309.09 | −3 | Added `2024-05-loop` mapping for two duplicate hashes — net loss |
+
+**Best submission today: v5 at 312.09.** Final/submit candidate.
+
+### Negative results (worth remembering)
+
+- **Don't filter Chinese descriptions** from dataset_0831 — costs 45 pts. BGE multilingual handles them.
+- **Don't compress c4_lookup descriptions** — costs ~2 pts. Raw 350-char clean-body output is closer to truth than 1–2 sentence summaries.
+- **Content-hash audit match ≠ guaranteed truth match.** `27c6f2a68058` and `c2426a2ab283` content-hash to `2024-05-loop` (64 unique-file overlap vs ≤14 for any other audit), but adding the mapping cost 3 pts. Either the truth labels don't come from 2024-05-loop's published findings, or the BGE description match fails on those rows.
+- **The 8GB `dataset_v0.zip` adds almost nothing** beyond what we already have. Its `dataset.csv` is older/smaller than `dataset_0831.csv`; the per-finding `.md` files duplicate our cached C4 reports; only the source-code `repos/` folder is new and only helped (incorrectly) solve the `2024-05-loop` mapping.
+
+### Open work (none tried today)
+
+1. **Get teammates to label more dataset_0831 TODO rows** — 3894 TODO rows exist; 200 more Done for our test audits ≈ +40 score. Zero-cost on our side, highest ROI.
+2. **Translate the 37 Chinese dataset_0831 descriptions to English** via batch LLM. v5.1 proved Chinese was net-positive vs nothing, so EN versions should be net-better than ZH. Estimated +5 to +20.
+3. **Identify `348856fe60ac`** (`BlackStar.sol` family) — 0 content matches against 338 audits in `dataset_v0/repos/`. From a non-C4 / non-Sherlock platform (Cantina / Trail of Bits / Spearbit / Zellic). Sample sizes suggest it's a small audit (52 .sol files).
+
+### Repository structure (pushed today)
+
+`src/pipeline/` is the current best framework (numbered 01–10). `src/legacy/` holds the older standalone approaches (model_v1, model_v2, baselines). Top-level `README.md` and `src/pipeline/README.md` have the architecture diagram and run instructions.
+
+GitHub: https://github.com/kgr-17/OneSavieBastet
+

@@ -4,20 +4,26 @@ Submission framework for the Kaggle [OneSavie Bastet](https://www.kaggle.com/com
 competition. Predict the `(severity, tag, subtag, description)` of
 vulnerabilities present in each test smart-contract repository.
 
-## Current best score: **312.09 / 421.81 (leader)** — v5
+## Current best score: **474.21** — v16 (`maxcontext` classifier). Leader (#1): 518.19
+
+Two eras. **Era 1 (lookup):** find each test repo's audit, copy its canonical findings → 312 → 442.
+**Era 2 (labeling-function classifier, 2026-06):** the bottleneck was never coverage — it was the
+competition `(tag, subtag)` labels. We model the competition's *labeling function* with an LLM,
+validate every change on a repo-disjoint train holdout, and apply it in place. **442 → 474.**
 
 | Submission | Public | Δ | Notes |
 |---|---|---|---|
-| Statistical priors (`legacy/model_v1.py`) | 117.41 | — | Pure decision-theoretic, no source code |
-| LLM-on-code (`first_achive_v9.py`, deleted) | 125.88 | +8 | Worked but pipeline broke when Kaggle dataset went private |
-| `c4_v1` — C4 lookup, cap=15 | 218.66 | +93 | First version of the framework |
-| `c4_v2` — no per-repo cap | 215.76 | −3 | Cap=15 was empirically right |
-| `c4_v3` — adds Sherlock recovery | 211.89 | −7 | Broken Sherlock parser |
-| `c4_v4` — Sherlock parser fixed | 211.89 | flat | Descriptions weren't the bottleneck |
-| **`c4_v5` — direct lookup from `dataset_0831.csv`** | **312.09** | **+100** | Current best (see [`src/pipeline/07_*`](src/pipeline/07_generate_v5_with_dataset0831.py)) |
-| `c4_v5_1` — filter Chinese descriptions | 267.04 | −45 | BGE multilingual was actually helping; don't filter |
-| `c4_v5_2` — compress c4-lookup descriptions | 310.46 | −2 | Raw 350-char descriptions are closer to truth |
-| `c4_v6` — add `2024-05-loop` mapping for two unidentified hashes | 309.09 | −3 | Content-hash audit match ≠ guaranteed truth match |
+| `c4_v5` — direct lookup from `dataset_0831.csv` | 312.09 | — | Era-1 best (see [`07_*`](src/pipeline/07_generate_v5_with_dataset0831.py)) |
+| `c4_v8` / teammate-442 | 442.88 | +131 | Canonical C4/Sherlock findings, rich descriptions |
+| `c4_v11` (teammate `0d40f2c3`) | >442 | — | Filled-description file; near-optimal coverage |
+| `c4_v12_miso` (row swap) | 424.96 | −18 | **Coverage is zero-sum** — dropping real rows costs |
+| **`c4_v13_retag` — LLM tag/subtag classifier** | **464.75** | **+22** | The breakpoint: model the labeling function, validate on holdout |
+| `c4_v14_fulltag` — aggressive override | 468.56 | +4 | Aggressive > conservative |
+| `c4_v15_canonical` — classify from full report text | 471.18 | +3 | Reading the full audit beats the short description |
+| **`c4_v16_maxcontext` — code-level reasoning (tournament winner)** | **474.21** | **+3** | Tag 65% (broke the false "61% ceiling"); see below |
+
+(Pre-v5 history: statistical priors ~117 → C4-lookup v1 218 → v5 312. Era-1 negatives: filter Chinese −45,
+compress descriptions −2, content-hash loop mapping −3. Full log in `daily_training_record.md`.)
 
 ## How it works — one paragraph
 
@@ -38,6 +44,40 @@ audits that appear in that file, v5 emits the labeled rows directly
 instead of going through the TF-IDF transfer step. See
 [src/pipeline/README.md](src/pipeline/README.md) for the architecture
 diagram and run instructions.
+
+## Era 2 — the labeling-function classifier (442 → 474)
+
+Once coverage was maxed (every row a real canonical finding) the score plateaued at 442.
+Diagnostics on a repo-disjoint train holdout (BGE scorer) showed where the points actually leak:
+
+| Dimension | Recoverable | Lever |
+|---|---|---|
+| Severity | ~99% (gold in `dataset_0831`) | already maxed |
+| Description | ~91% clear the 0.7 BGE bar | rich canonical text |
+| **Tag** | **~24% naive → 65% modeled** | the real leak |
+| **Subtag** | **~11% naive → 51% modeled** | the real leak |
+
+The competition `(tag, subtag)` is a **learnable labeling function** (OneSavie taxonomy applied by
+DeFiHackLabs annotators). We reverse-engineer it with an LLM and — crucially — **it validates on a
+train holdout** (labels transfer train→test even though repo hashes are disjoint; *coverage* does not,
+which is why offline coverage tuning always failed). Pipeline + experiments live in
+[`artifacts/tag_classifier/`](artifacts/tag_classifier/) (see its `README.md`).
+
+Key results, each validated on the holdout before submission:
+- **Labeling classifier** (taxonomy + few-shot, 3-pass ensemble, override only `dataset_0831`-unlabeled
+  "guessed" rows): 24%→59% tag → **+22 live** (v13).
+- **Canonical-text input** (classify from the full audit finding, not the short description): **+8pp subtag**.
+- **`maxcontext` strategy** — found by racing 5 prompting strategies in a parallel *tournament*: make the
+  model **pinpoint the exact code-level defect before labeling**. Broke the apparent "61% tag ceiling" →
+  **65%**. That ceiling was a *prompting* limit, not a data limit.
+
+Hard-won lessons (all reproduced in the holdout / live board):
+- **Coverage is zero-sum** — the 400-row cap is fixed; dropping a real finding to add another costs points
+  (v12 −18, `exp_v20` blind gap-fill −394). Only same-row *label* edits help.
+- **Validate on a train holdout, not a test proxy** — test-row self-holdouts reward style-mimicry and
+  greenlit regressions; `tools/holdout_score.py` is banned as a go/no-go.
+- **The remaining ~44 to #1 is gold** — the LLM caps at 65%/51%; only a fuller-tagged dataset
+  (`dataset_0831` is 12% tagged) closes it.
 
 ## Repository layout
 
@@ -145,24 +185,21 @@ repo_penalty  = max(0, num_predicted - num_truth) * 0.5   (per matched pair)
 
 ## Open work
 
-Highest-ROI moves to chase the remaining 109-point gap to the leader (421):
+Current best **474.21** (v16); leader **518.19**. The LLM classifier is now maxed
+(tag 65% / subtag 51% / severity gold), so the remaining ~44 is **gold labels**:
 
-1. **Get teammates to label more `dataset_0831.csv` TODO rows** — 3894 TODO
-   rows exist; 200 more Done rows for our test audits ≈ +40 score. Zero-cost
-   on our side, highest ROI. Most of the 41/53 test audits we matched have
-   TODO rows ready and waiting.
-2. **Translate the 37 Chinese descriptions** in `dataset_0831.csv` (Tim's
-   rows) to English via batch LLM. v5.1 proved Chinese was net-positive vs
-   nothing, so English versions should be net-better than Chinese-via-BGE.
-   Estimated +5 to +20.
-3. **Locate `348856fe60ac`** (`BlackStar.sol` / `BlackStar.t.sol`) — 0
-   content matches against 338 audits in `dataset_v0/repos/`. From a
-   non-public platform (Cantina / Trail of Bits / Spearbit / Zellic).
-   52 .sol files; small audit. If found, expected +5 to +15.
+1. **A fuller-tagged `dataset_0831` snapshot (highest ROI).** Our copy is only 12% tagged
+   (`tag`/`subtag` blank on most rows; severity is 99% filled). A snapshot where those columns
+   are filled flips ~250 of our ~65% guesses to ~100% gold → **+50 to +130**. This is a
+   *dataset-find*, not hand-labeling — `artifacts/teammate_labeling_sheet.csv` lists the exact
+   289 rows / 29 audits that need it, pre-filled with our guesses to confirm.
+2. **Push the classifier past 65%/51% with more info** — feed the actual `.sol` source (not just
+   the report) for the hardest findings. Low-confidence (maxcontext already reads the report's code
+   snippets); validate on the holdout first.
+3. **More tournament rounds** — the parallel-strategy race is repeatable; new strategies
+   (per-tag verifiers, richer few-shot) may find another +2–4.
 
-Already attempted today and failed (do not re-try without a new idea):
-filter Chinese rows (−45), compress c4 descriptions (−2), naive content-hash
-audit mapping for the 2024-05-loop hashes (−3). See `daily_training_record.md`.
-
-Detailed roadmap also lives in
-[src/pipeline/README.md § Known weak spots](src/pipeline/README.md#known-weak-spots--next-iteration).
+Validated dead-ends (do **not** re-try): row swaps / coverage changes (zero-sum, v12 −18,
+`exp_v20` −394), retrieval few-shot (−6pp), 5-pass self-consistency (flat), two-stage subtag
+(−5pp), gold-alignment (no-op), count-cap (no-op), the public Drive's Oct snapshot (= our same
+Aug-31 file). Full reasoning in `daily_training_record.md`.

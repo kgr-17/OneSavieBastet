@@ -32,3 +32,9 @@ artifacts/
 data/
 download-vuln.ipynb
 teamate_hightst_submission.csv
+
+# Scratch / sc2026-06 dev session (regenerable LLM output dumps)
+tmp_*.txt
+tmp_*.json
+out*.txt
+0d40f2c3.csv

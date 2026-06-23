@@ -38,3 +38,11 @@ tmp_*.txt
 tmp_*.json
 out*.txt
 0d40f2c3.csv
+temp_*.txt
+tools/_*.txt
+scratch/
+tools/renft_src/
+
+# Labeling handoff — teammate deliverable + internal eval (shared via zip, not repo)
+labeling_handoff/
+labeling_handoff_local/

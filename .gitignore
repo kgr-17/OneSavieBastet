@@ -46,3 +46,10 @@ tools/renft_src/
 # Labeling handoff — teammate deliverable + internal eval (shared via zip, not repo)
 labeling_handoff/
 labeling_handoff_local/
+
+# Fine-tuning experiment: derived data + LLM prediction dumps (regenerable; contain labels — keep private mid-competition)
+finetune/teacher/
+finetune/data/
+kaggle_ft/dataset/
+data_history/
+finetune/results_*.json

@@ -31,37 +31,23 @@ python skills/claude-code-bridge/scripts/claude_bridge.py respond --task-id <tas
 This project is tracking the Bastet smart-contract vulnerability competition.
 The local validation standard lives in `src/run_validation_standard.py` and the shared validation skill lives in `skills/bastet-validation-standard/`.
 
-## Latest Bastet Handoff - 2026-06-22 15:44 PT
+## Latest Bastet Handoff - 2026-06-24 (NEW BEST 479.27996)
 
-Start here after refresh:
+Start here after refresh. Full detail in `daily_training_record.md` (2026-06-24 section).
 
-- Current public barrier remains the 474.x family. Known recent scores:
-  - screenshot best: `474.87796`
-  - v25d/v16-style: `474.21304`
-  - v29j all6 pair majority ge5: `473.21304`
-  - v30g GPT-5.5 top49 excluding v29j-loss pids: `472.26098`
-  - v30h all6 ge4 excluding v29j-loss pids: `472.23541`
-- Codex tested the aggressive label-lane idea using the top49 model/team-labeled rows.
-- v29j changed seven high-consensus pids and lost live: `101, 112, 162, 164, 331, 332, 374`.
-- v30 excluded those seven pids and tried broader remaining top49 label edits. Two public probes still lost:
-  - `outputs/submission_c4_v30g_labeltop49_gpt55_top49_exclude_v29jloss.csv` changed 23 rows, public `472.26098`.
-  - `outputs/submission_c4_v30h_labeltop49_all6_pair_majority_ge4_exclude_v29jloss.csv` changed 10 rows, public `472.23541`.
-- Local old-holdout label-lane validation was directionally correct:
-  - baseline maxcontext: `394.0346`
-  - pair majority / independent: `393.3680` (`-0.6667`)
-  - GPT-5.5: `389.3680` (`-4.6667`)
-  - unanimous/high-agreement hedge: `394.0346` (`+0.0000`)
-- Conclusion: stop v30-style AI-label permutations. They are noisy and public-negative. Only reopen label-lane if a genuinely human-reviewed/gold label source appears.
+- **NEW PUBLIC BEST: `479.27996`** = `data_history/submission_c4_v34_teacher_all_479.27.csv` (also `outputs/submission_c4_v34_teacher_all.csv`). Full fresh Opus-4.8 teacher relabel of the 289 guessed rows on the ee25fix(475.07) base (44 tag + 64 subtag, pure-label). +4.2 over 475.07. **Select v34 on Kaggle.** (Also keep v33=475.07 as a private-LB-safe gold variant.)
+- **CRITICAL: the seed-1337 train-holdout does NOT predict public.** The Opus teacher scored 56.2 tag on holdout (worse than maxcontext 72.5) yet gained +4.2 LIVE. Do NOT gate test relabels on the old holdout. Optimize via live submissions + cross-model consensus.
+- **Lever (confirmed by score-history EDA): same-row tag/subtag relabel** on the frozen 400-row skeleton. v34 is a fresh aggressive relabel of that lever and it works. Subtag changes outweigh tag in every winning jump.
+- **Dead ends ruled out today (live):** multi-label restore from noisy 2nd-tags `v40`=478.28 (-1.0); source-code relabel `v42`=470.88 (-8.4, code is not the lever). On holdout: fine-tuned encoders 30-33%, distillation teacher 56%, all below maxcontext.
+- **Next levers:** (1) multi-pass Opus teacher ENSEMBLE (majority of 3-5 relabels) to beat v34's single pass; (2) HUMAN GOLD on the 35 hyper-unstable + 104 disagreement rows = the only reliable path to 500. Tool ready: `labeling_handoff/GOLD_LABELING_SHEET.csv` (gitignored), pre-filled with maxcontext/teacher/guess candidates, disagreement-sorted.
 
-Useful files:
+Useful files / new code:
 
-- `daily_training_record.md`
-- `artifacts/tag_classifier/label_lane_v30_aggressive_plan_20260622.md`
-- `artifacts/tag_classifier/label_lane_v30_aggressive_manifest_20260622.json`
-- `artifacts/tag_classifier/local_label_lane_validation_20260622.json`
-- `scratch/build_label_lane_v30_aggressive.py`
-- `bridges/claude-code/tasks/20260622-154459-continue-after-v30-label-lane-public-results.md`
+- `daily_training_record.md` (2026-06-24 section) — full session log.
+- `finetune/score_eda.py` (score-ladder decoder) + `finetune/deep_tag_eda.py` (multi-label/skew/instability dive) + `artifacts/score_eda_stats.json`.
+- `finetune/score_and_build_teacher.py`, `build_teacher_context.py`, `score_preds.py` — the Opus-teacher relabel pipeline (re-runnable; teacher context in `finetune/teacher/context.txt`).
+- `finetune/build_gold_overlay.py`, `apply_gold.py` — dataset_0831 gold overlay (v33).
+- `kaggle_ft/` — Kaggle GPU fine-tune notebook (P100 cu121 + .bin->safetensors fixes baked in).
+- `data_history/` — the score-tagged submission ladder (145 -> 479).
 
-Recommended next move:
-
-Work from the prior best submission family, not from v30. The remaining plausible path is external/human gold labels for guessed tag/subtag rows; algorithmic relabeling from the same text has repeatedly tied or lost.
+Data on disk (gitignored): `data/dataset_0831.csv`, `data/test/` + `data/train/` source code, `artifacts/c4_reports/` (376 C4 reports).

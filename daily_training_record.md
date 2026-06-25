@@ -1179,3 +1179,58 @@ Codex built `labeling_handoff_local/truth_local_top49.json` = 49 holdout low-con
 - Rows where 5-model consensus would change maxcontext: 19. Correction right (mc wrong)=3, mc right (correction breaks)=8, neither=8 => net **-5**. Exact holdout proxy for the live losses.
 - AI fills are 40-47% on hard rows (BELOW maxcontext 49%). Do not auto-apply ANY model/consensus. Definitive.
 - **The real lever:** oracle-union=69.4% means a HUMAN picking among the 6 pre-generated model answers could lift hard rows 49->~69% (~+10 rows). Turn the labeling into a multiple-choice pick over TOP49_SIX_MODEL_EVAL.csv. Ceiling 69% vs current 49%.
+
+---
+
+## 2026-06-24 — Fine-tuning investigation, score-history EDA, and the v34 BREAKTHROUGH (475 -> 479.28)
+
+### NEW BEST: 479.27996 (`outputs/submission_c4_v34_teacher_all.csv`, archived `data_history/submission_c4_v34_teacher_all_479.27.csv`)
+Full fresh **Opus-4.8 teacher relabel** of the 289 guessed rows on the ee25fix(475.07) base: 44 tag + 64 subtag changes, pure-label (counts unchanged). **+4.21 over the prior 475.07 best.** Same Era-3 lever (tag/subtag relabel) that drove 447->474.
+
+### THE CRITICAL METHODOLOGY FINDING: the train-holdout does NOT predict public
+The seed-1337 153-row holdout (the basis of all prior "72.5 tag / 56.2 subtag" tuning) is **anti-useful as a go/no-go gate for test relabels.** The exact Opus teacher that scored **56.2 tag on holdout (WORSE than maxcontext 72.5) gained +4.2 LIVE.** The holdout measures agreement with *train* labels; the hidden TEST rewards label conventions a fresh Opus matches better than the train-tuned maxcontext. **Optimize via live submissions + cross-model consensus, NOT the holdout.** (This vindicates the "submit aggressively, may dip first" approach.)
+
+### Fine-tuning / distillation: all confirmed BELOW the maxcontext ceiling (on holdout)
+Built a full local (Py3.11 `.venv`, MPS) + Kaggle-GPU pipeline (`finetune/`, `kaggle_ft/`). Holdout vs maxcontext 72.5/56.2:
+| approach | tag | subtag |
+|---|---:|---:|
+| TF-IDF / frozen sentence-embeddings + LogReg | 32-40 | 21-34 |
+| fine-tuned bert/roberta/codebert (Kaggle T4/P100) | 30-33 | 15-20 |
+| fresh Opus + 98-shot teacher (v1) | 56.2 | 44.4 |
+| teacher-v2 (disambiguation + 3-pass) | 55.6 | 45.8 |
+| source-code-aware (desc + extracted Solidity) | 53.3 | 44.1 |
+
+All below maxcontext ON HOLDOUT — but per the finding above, holdout is not the live signal. Encoders genuinely underpowered (559 leakage-safe gold rows is too little for 37 tag / 61 subtag classes, repo-disjoint). Kaggle env gotchas solved: P100(sm_60) needs cu121 torch pin; transformers 5.0 blocks legacy .bin -> convert to safetensors in-kernel.
+
+### Recovered data assets (now on disk under data/, gitignored)
+- `data/dataset_0831.csv` (467KB, from teammate Drive via MCP) — 504 Done gold, 322 usable. Expanded leakage-safe train pool 344 -> 559.
+- `data/test/` (53 repos) + `data/train/` (16 holdout repos) source code, from Azure blobs.
+- `artifacts/c4_reports/` — 376 C4 audit reports fetched from GitHub.
+
+### Score-history EDA (the user's score-tagged ladder in `data_history/`) — decoded the climb
+All submissions share Property 1..400, so row-by-row diff attributes each jump to exact fields. **Three eras:**
+1. **145 -> 410 (+265): DATA-SOURCE REBUILDS.** Each huge jump rebuilt ~95% of all fields from a better source (C4 lookup -> dataset_0831 direct lookup -> coverage). Median desc *shrank* 567->191 while score rose => it was never description length, it was selecting the RIGHT rows.
+2. **410 -> 447 (+37): description fill** (215 then 293 rewrites). Pure-upside but LOW value (~5 pts per 293 rewrites).
+3. **447 -> 479 (+32): PURE tag/subtag relabel** on the frozen 400-row skeleton. v13 +17 then incremental; v34 today +4.2 — same lever. **Subtag changes consistently exceed tag changes** in every retag jump.
+The ~440 plateau ("50 tries") = structure solved, only marginal label tweaks until LLM-retag unlocked +17.
+
+### Deep tag/subtag dive — what we may be MISSING
+- **Multi-label collapse:** gold = **25% multi-tag** (1.28 tags/row); v34 = **5%** (1.06). The retag collapsed multi-tags. Scorer is set-based partial credit `(TP-0.5*FP)/|truth|`, so single-predicting a multi-tag truth scores 0.5 not 1.0. BUT restoring NOISY 2nd-tags from the 442 baseline (`v40`) scored **478.28 (-1.0)** — multi-label is real but needs GOLD 2nd-tags, not guesses.
+- **Distribution skew:** v34 over-tags Accounting Error (16% vs gold 9.3%), under-tags Input Validation (7.8% vs 10.9%).
+- **35 hyper-unstable rows** (>=4 distinct tags across the ladder; pids 272,130,186,269,311,127,128,…) = ambiguity + remaining points concentrated here = human-gold priority.
+
+### Today's submissions (live)
+| file | public | note |
+|---|---:|---|
+| `submission_c4_v33_ee25fix_gold.csv` | 475.07452 | +3 verified dataset_0831 gold tags; tied public (rows in private split) -> select for private |
+| **`submission_c4_v34_teacher_all.csv`** | **479.27996** | **Opus teacher relabel — NEW BEST (+4.2)** |
+| `submission_c4_v40_multitag.csv` | 478.27996 | multi-label restore (noisy 2nd-tags) -1.0; DEAD |
+| `submission_c4_v42_srccode_full.csv` | 470.87759 | source-code relabel -8.4; code is NOT the lever (confirms record 69.9<72.5) |
+
+### Untested candidates + next levers
+- `outputs/submission_c4_v41_consensus.csv` — only the 21 tag + 27 subtag where teacher-v1 AND source-code agree maxcontext is wrong (subset of v34; likely <= v34 since v42 showed teacher right on disagreements).
+- **Multi-pass teacher ENSEMBLE** (majority of 3-5 independent Opus relabels) = last algorithmic shot at beating v34's single pass.
+- **Human gold** on the 35 unstable + 104 disagreement rows (`labeling_handoff/GOLD_LABELING_SHEET.csv`, gitignored) = the only reliable path to 500. Each row pre-filled with maxcontext / Opus-teacher / guess candidates, sorted disagreement-first.
+
+### New code (committed)
+`finetune/`: prep_data, baselines, embed_lr, fine_tune (+ kaggle_ft/ GPU notebook), leakage_probe, expanded_experiments, build_teacher_context, score_and_build_teacher, score_preds, extract_finding_code, build_code_items, build_labeling_tool, build_gold_overlay, apply_gold, **score_eda** (the ladder decoder), **deep_tag_eda** (the multi-label/skew/instability dive). `data_history/` holds the score-tagged submission ladder.

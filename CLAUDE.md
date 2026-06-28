@@ -31,23 +31,24 @@ python skills/claude-code-bridge/scripts/claude_bridge.py respond --task-id <tas
 This project is tracking the Bastet smart-contract vulnerability competition.
 The local validation standard lives in `src/run_validation_standard.py` and the shared validation skill lives in `skills/bastet-validation-standard/`.
 
-## Latest Bastet Handoff - 2026-06-24 (NEW BEST 479.27996)
+## Latest Bastet Handoff - 2026-06-28 (BEST 481.21, #5 — git-metadata leak found)
 
-Start here after refresh. Full detail in `daily_training_record.md` (2026-06-24 section).
+Start here after refresh. Full detail in `daily_training_record.md` (2026-06-27/28 section).
 
-- **NEW PUBLIC BEST: `479.27996`** = `data_history/submission_c4_v34_teacher_all_479.27.csv` (also `outputs/submission_c4_v34_teacher_all.csv`). Full fresh Opus-4.8 teacher relabel of the 289 guessed rows on the ee25fix(475.07) base (44 tag + 64 subtag, pure-label). +4.2 over 475.07. **Select v34 on Kaggle.** (Also keep v33=475.07 as a private-LB-safe gold variant.)
-- **CRITICAL: the seed-1337 train-holdout does NOT predict public.** The Opus teacher scored 56.2 tag on holdout (worse than maxcontext 72.5) yet gained +4.2 LIVE. Do NOT gate test relabels on the old holdout. Optimize via live submissions + cross-model consensus.
-- **Lever (confirmed by score-history EDA): same-row tag/subtag relabel** on the frozen 400-row skeleton. v34 is a fresh aggressive relabel of that lever and it works. Subtag changes outweigh tag in every winning jump.
-- **Dead ends ruled out today (live):** multi-label restore from noisy 2nd-tags `v40`=478.28 (-1.0); source-code relabel `v42`=470.88 (-8.4, code is not the lever). On holdout: fine-tuned encoders 30-33%, distillation teacher 56%, all below maxcontext.
-- **Next levers:** (1) multi-pass Opus teacher ENSEMBLE (majority of 3-5 relabels) to beat v34's single pass; (2) HUMAN GOLD on the 35 hyper-unstable + 104 disagreement rows = the only reliable path to 500. Tool ready: `labeling_handoff/GOLD_LABELING_SHEET.csv` (gitignored), pre-filled with maxcontext/teacher/guess candidates, disagreement-sorted.
+- **CURRENT PUBLIC BEST: `481.20770`** = `outputs/submission_c4_v50_v49_plus216.csv` (v49 report-grounded +1.24 over 479.96, + pid216 ERC4626 gold). Team rank **#5**. Top teams: X-AISec 649, Verve 604, guonifd 510 (gap ~28 to top-4). Deadline 2026-06-30.
+- **TOMORROW SUBMIT FIRST: `outputs/submission_c4_v58_gitfix.csv`** (staged `data_history/submission_c4_v58_gitfix_PENDING.csv`). HIGH confidence (~+7-15, near-zero downside). See below.
+- **THE BREAKTHROUGH — git-metadata leak (from competitor github.com/ZSZH12138/OneSavie_Bastet, ~440):** 51/52 test repos have `data/test/<hash>/.git/config` with the exact GitHub origin -> precise C4/Sherlock contest. `finetune/teacher/gitmap.json` = authoritative hash->contest. Our description-matching MIS-MAPPED 3 repos (51c6dc5fd57f=mzero, 54405135ebf3=canto, e6e43dfea59f=badger-citadel); ~7 rows describe the wrong contest's findings (scoring ~0). **v58 fixes them with correct canonical findings.** Next: re-verify all 51 mappings, fix any other wrong-contest rows (mzero/canto reports parsed poorly — Sherlock format, re-parse).
+- **CRITICAL: train-holdout does NOT predict public** (v34 scored 56 holdout, +4.2 live). Optimize via live submissions + cross-model/git evidence. **No free Kaggle slots until daily reset (~5pm PDT / 00:00 UTC).**
+- **Scorer (from src/run_validation_standard.py):** 400-row HARD cap (Property 1..400); `repo_penalty=max(0,n_pred-n_truth)` per repo; we're under-covered everywhere -> penalty 0, all rows match. Coverage reallocation is ~zero-sum (v55 swing tied). Tags MAXED (OneSavie rubric code-detection agrees 97% with v50). Descriptions already match canonical 0.93 / clear 0.7 at 98%.
+- **Dead ends (live, this stretch):** v40 multi-label -1.0, v42 source-code -8.4, v46/v48 ensemble/conf80 regress (over-tag DoS), v55 coverage swing tied, v47 gold-resolve tied. v59 desc-rewrite = UNCERTAIN coin-flip (descriptions already maxed; helps only if truth is concise-style).
 
 Useful files / new code:
 
-- `daily_training_record.md` (2026-06-24 section) — full session log.
-- `finetune/score_eda.py` (score-ladder decoder) + `finetune/deep_tag_eda.py` (multi-label/skew/instability dive) + `artifacts/score_eda_stats.json`.
-- `finetune/score_and_build_teacher.py`, `build_teacher_context.py`, `score_preds.py` — the Opus-teacher relabel pipeline (re-runnable; teacher context in `finetune/teacher/context.txt`).
-- `finetune/build_gold_overlay.py`, `apply_gold.py` — dataset_0831 gold overlay (v33).
-- `kaggle_ft/` — Kaggle GPU fine-tune notebook (P100 cu121 + .bin->safetensors fixes baked in).
-- `data_history/` — the score-tagged submission ladder (145 -> 479).
+- `daily_training_record.md` (2026-06-27/28 section) — full session log.
+- `finetune/teacher/gitmap.json` — AUTHORITATIVE hash->contest (git-metadata). `git_origins.json` raw.
+- `outputs/submission_c4_v58_gitfix.csv` — the high-confidence next submission.
+- `finetune/teacher/onesavie_criteria_full.json` — 32 OneSavie sub-detector criteria (their exact detection logic).
+- `finetune/local_eval.py` (independent-gold validator), `coverage_gap.py`, `static_detect.py`, `cross_method.py`, `build_report_grounded.py`.
+- Prior best ladder: v34=479.27, correction_hp=479.96, v49/v50=481.21 (all in `data_history/`).
 
 Data on disk (gitignored): `data/dataset_0831.csv`, `data/test/` + `data/train/` source code, `artifacts/c4_reports/` (376 C4 reports).

@@ -1,0 +1,144 @@
+{
+ "chainlink": [
+  {
+   "sub": "Chainlink-Not Checking For Down L2 Sequencer",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Not Checking For Stale Prices",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Same Heartbeat Used For Multiple Price Feeds",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Oracle Price Feeds Not Updated Frequently",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Request Confirmation < Depth of Chain Re-Orgs",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Assuming Oracle Price Precision",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Incorrect Oracle Price Feed Address",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Oracle Price Updates Can Be Front-Run",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Unhandled Oracle Revert Denial Of Service",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Unhandled Depeg Of Bridged Assets",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Oracle Returns Incorrect Price During Flash Crashes",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Placing Bets After Randomness Request",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Chainlink-Re-requesting Randomness",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  }
+ ],
+ "slippage": [
+  {
+   "sub": "Slippage-No Slippage Parameter",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-No Expiration Deadline",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-Incorrect Slippage Calculation",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-Mismatched Slippage Precision",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-Minting Exposes Users To Unlimited Slippage",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-MinTokensOut For Intermediate, Not Final Amount",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-On-Chain Slippage Calculation Can Be Manipulated",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-Hard-coded Slippage May Freeze User Funds",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Slippage-Zero Slippage Required",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  }
+ ],
+ "erc4626": [
+  {
+   "sub": "ERC4626-Rounding",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "ERC4626-Global and user-specific limits",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "ERC4626-Fee",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  }
+ ],
+ "flashloan": [
+  {
+   "sub": "COT - flashloan manipulation attack",
+   "crit": "vulnerability, follow the thinking process to detect the problem in the contract code. You will focus on the specific vulnerability - manipu"
+  }
+ ],
+ "access_control": [
+  {
+   "sub": "Lack of two-step process for contract ownership changes",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Lack of access control",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  }
+ ],
+ "denial_of_service": [
+  {
+   "sub": "Unbounded loop",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Integration/Logical error",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  },
+  {
+   "sub": "Refund failed",
+   "crit": "vulnerability knowledge and understanding correct and incorrect examples, detect the problem in the contract code.  ### Vulnerability Knowle"
+  }
+ ],
+ "slippage_min_amount": [
+  {
+   "sub": "COT - slippage min amount",
+   "crit": "vulnerability, follow the step by step thinking process for each function. Your output should contain each step\\u2019s thinking.  ## Thinkin"
+  }
+ ]
+}

@@ -1,0 +1,206 @@
+{
+ "0315ba9d8121": {
+  "url": "https://github.com/code-423n4/2024-07-benddao.git",
+  "contest": "2024-07-benddao"
+ },
+ "03196f805abb": {
+  "url": "https://github.com/code-423n4/2021-09-sushimiso.git",
+  "contest": "2021-09-sushimiso"
+ },
+ "099243e83259": {
+  "url": "https://github.com/code-423n4/2022-11-stakehouse.git",
+  "contest": "2022-11-stakehouse"
+ },
+ "103f39b0f29b": {
+  "url": "https://github.com/sherlock-audit/2024-02-rubicon-finance.git",
+  "contest": "2024-02-rubicon-finance"
+ },
+ "1167ec3a176e": {
+  "url": "https://github.com/sherlock-audit/2024-03-arrakis.git",
+  "contest": "2024-03-arrakis"
+ },
+ "198fa93fabdd": {
+  "url": "https://github.com/code-423n4/2022-06-nibbl.git",
+  "contest": "2022-06-nibbl"
+ },
+ "1d8f1f43cde9": {
+  "url": "https://github.com/code-423n4/2022-03-volt.git",
+  "contest": "2022-03-volt"
+ },
+ "2c5e13b4e147": {
+  "url": "https://github.com/code-423n4/2022-05-cudos.git",
+  "contest": "2022-05-cudos"
+ },
+ "348856fe60ac": {
+  "url": "https://github.com/foundry-rs/forge-std",
+  "contest": "forge-std"
+ },
+ "40cc38c69cca": {
+  "url": "https://github.com/code-423n4/2021-10-defiprotocol.git",
+  "contest": "2021-10-defiprotocol"
+ },
+ "485f7b9ccb0a": {
+  "url": "https://github.com/code-423n4/2024-02-thruster.git",
+  "contest": "2024-02-thruster"
+ },
+ "4ef0b4d678ab": {
+  "url": "https://github.com/code-423n4/2022-12-caviar.git",
+  "contest": "2022-12-caviar"
+ },
+ "51c6dc5fd57f": {
+  "url": "https://github.com/sherlock-audit/2023-10-mzero.git",
+  "contest": "2023-10-mzero"
+ },
+ "54405135ebf3": {
+  "url": "https://github.com/code-423n4/2023-11-canto.git",
+  "contest": "2023-11-canto"
+ },
+ "592eed5791df": {
+  "url": "https://github.com/sherlock-audit/2024-07-kwenta-staking-contracts.git",
+  "contest": "2024-07-kwenta-staking-contracts"
+ },
+ "7100a75d6ebd": {
+  "url": "https://github.com/code-423n4/2022-07-juicebox.git",
+  "contest": "2022-07-juicebox"
+ },
+ "73f6a793d916": {
+  "url": "https://github.com/sherlock-audit/2024-01-rio-vesting-escrow.git",
+  "contest": "2024-01-rio-vesting-escrow"
+ },
+ "7b5e1803022e": {
+  "url": "https://github.com/code-423n4/2022-06-notional-coop.git",
+  "contest": "2022-06-notional-coop"
+ },
+ "7bbe3d81960c": {
+  "url": "https://github.com/code-423n4/2023-06-canto.git",
+  "contest": "2023-06-canto"
+ },
+ "804fe35b0164": {
+  "url": "https://github.com/code-423n4/2022-11-non-fungible.git",
+  "contest": "2022-11-non-fungible"
+ },
+ "8a20eb1e521f": {
+  "url": "https://github.com/code-423n4/2024-06-badger.git",
+  "contest": "2024-06-badger"
+ },
+ "8f18f7d5c396": {
+  "url": "https://github.com/code-423n4/2021-10-slingshot.git",
+  "contest": "2021-10-slingshot"
+ },
+ "9470d2cf198f": {
+  "url": "https://github.com/sherlock-audit/2025-02-rova.git",
+  "contest": "2025-02-rova"
+ },
+ "97843b77b287": {
+  "url": "https://github.com/code-423n4/2021-07-sherlock.git",
+  "contest": "2021-07-sherlock"
+ },
+ "98b7c1691811": {
+  "url": "https://github.com/code-423n4/2022-01-xdefi.git",
+  "contest": "2022-01-xdefi"
+ },
+ "9befb133ee74": {
+  "url": "https://github.com/code-423n4/2021-06-gro.git",
+  "contest": "2021-06-gro"
+ },
+ "9cc1dc4ae06a": {
+  "url": "https://github.com/code-423n4/2022-05-aura.git",
+  "contest": "2022-05-aura"
+ },
+ "9ddd6b83c27e": {
+  "url": "https://github.com/sherlock-audit/2022-10-rage-trade.git",
+  "contest": "2022-10-rage-trade"
+ },
+ "a1ee58021528": {
+  "url": "https://github.com/code-423n4/2022-02-anchor.git",
+  "contest": "2022-02-anchor"
+ },
+ "a3e15237ea08": {
+  "url": "https://github.com/code-423n4/2024-06-thorchain.git",
+  "contest": "2024-06-thorchain"
+ },
+ "a4d91fb1550f": {
+  "url": "https://github.com/code-423n4/2021-05-88mph.git",
+  "contest": "2021-05-88mph"
+ },
+ "a8884f87db1a": {
+  "url": "https://github.com/code-423n4/2024-03-gitcoin.git",
+  "contest": "2024-03-gitcoin"
+ },
+ "af8e4af75dc2": {
+  "url": "https://github.com/code-423n4/2022-10-inverse.git",
+  "contest": "2022-10-inverse"
+ },
+ "afa60bc8003d": {
+  "url": "https://github.com/code-423n4/2022-04-xtribe.git",
+  "contest": "2022-04-xtribe"
+ },
+ "b155c4de6012": {
+  "url": "https://github.com/code-423n4/2023-09-delegate.git",
+  "contest": "2023-09-delegate"
+ },
+ "b2a8c124d062": {
+  "url": "https://github.com/code-423n4/2022-07-swivel.git",
+  "contest": "2022-07-swivel"
+ },
+ "b7fc4d82013a": {
+  "url": "https://github.com/code-423n4/2021-12-defiprotocol.git",
+  "contest": "2021-12-defiprotocol"
+ },
+ "ba93b3b8d7cf": {
+  "url": "https://github.com/code-423n4/2022-05-sturdy.git",
+  "contest": "2022-05-sturdy"
+ },
+ "bb3018c8812c": {
+  "url": "https://github.com/code-423n4/2024-03-coinbase.git",
+  "contest": "2024-03-coinbase"
+ },
+ "c20104cb90d7": {
+  "url": "https://github.com/code-423n4/2022-05-runes.git",
+  "contest": "2022-05-runes"
+ },
+ "d562802cb53a": {
+  "url": "https://github.com/code-423n4/2024-03-zksync.git",
+  "contest": "2024-03-zksync"
+ },
+ "d9b35c0c87a4": {
+  "url": "https://github.com/code-423n4/2023-06-stader.git",
+  "contest": "2023-06-stader"
+ },
+ "dd17040a53bc": {
+  "url": "https://github.com/code-423n4/2021-12-amun.git",
+  "contest": "2021-12-amun"
+ },
+ "e0d2d83ea351": {
+  "url": "https://github.com/code-423n4/2023-01-popcorn.git",
+  "contest": "2023-01-popcorn"
+ },
+ "e169bbefc6e2": {
+  "url": "https://github.com/code-423n4/2022-04-jpegd.git",
+  "contest": "2022-04-jpegd"
+ },
+ "e6e43dfea59f": {
+  "url": "https://github.com/code-423n4/2022-04-badger-citadel.git",
+  "contest": "2022-04-badger-citadel"
+ },
+ "e7921851ec01": {
+  "url": "https://github.com/sherlock-audit/2023-12-dodo.git",
+  "contest": "2023-12-dodo"
+ },
+ "e99e64a8abf1": {
+  "url": "https://github.com/code-423n4/2023-08-shell.git",
+  "contest": "2023-08-shell"
+ },
+ "ee25ec7abd40": {
+  "url": "https://github.com/sherlock-audit/2023-03-optimism.git",
+  "contest": "2023-03-optimism"
+ },
+ "fa1836e0615e": {
+  "url": "https://github.com/code-423n4/2023-08-dopex.git",
+  "contest": "2023-08-dopex"
+ },
+ "fee749ecd513": {
+  "url": "https://github.com/code-423n4/2022-07-yield.git",
+  "contest": "2022-07-yield"
+ }
+}

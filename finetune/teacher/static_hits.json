@@ -1,0 +1,229 @@
+{
+ "0315ba9d8121": {
+  "DoS|Unbounded loop": 190,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 12,
+  "Slippage|Missing deadline": 8,
+  "Chainlink|Deprecated Library": 1
+ },
+ "099243e83259": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 11,
+  "DoS|Unbounded loop": 26
+ },
+ "103f39b0f29b": {
+  "DoS|Unbounded loop": 41,
+  "Slippage|Missing deadline": 27,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "1167ec3a176e": {
+  "Slippage|Missing deadline": 9,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "198fa93fabdd": {
+  "DoS|Unbounded loop": 9,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 4
+ },
+ "1d8f1f43cde9": {
+  "Slippage|Missing deadline": 13,
+  "DoS|Unbounded loop": 3
+ },
+ "27c6f2a68058": {
+  "DoS|Unbounded loop": 128,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 12,
+  "Slippage|Missing deadline": 13
+ },
+ "2c5e13b4e147": {
+  "DoS|Unbounded loop": 10
+ },
+ "348856fe60ac": {
+  "DoS|Unbounded loop": 32,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 3
+ },
+ "40cc38c69cca": {
+  "DoS|Unbounded loop": 9
+ },
+ "485f7b9ccb0a": {
+  "DoS|Unbounded loop": 50,
+  "Slippage|Missing deadline": 32,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 13
+ },
+ "4ef0b4d678ab": {
+  "DoS|Unbounded loop": 14
+ },
+ "51c6dc5fd57f": {
+  "Slippage|Missing deadline": 93,
+  "DoS|Unbounded loop": 18
+ },
+ "54405135ebf3": {
+  "DoS|Unbounded loop": 117,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 16,
+  "Slippage|Missing deadline": 17
+ },
+ "592eed5791df": {
+  "Slippage|Missing deadline": 68,
+  "DoS|Unbounded loop": 33,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "7100a75d6ebd": {
+  "DoS|Unbounded loop": 16,
+  "Slippage|Missing deadline": 2,
+  "Chainlink|Stale Value": 1
+ },
+ "73f6a793d916": {
+  "Slippage|Missing deadline": 13,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 2
+ },
+ "7b5e1803022e": {
+  "DoS|Unbounded loop": 182,
+  "Slippage|Missing deadline": 32,
+  "Slippage|Missing minOut / maxAmount": 1,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "7bbe3d81960c": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "804fe35b0164": {
+  "Slippage|Missing deadline": 2,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 3,
+  "DoS|Unbounded loop": 6
+ },
+ "8a20eb1e521f": {
+  "Slippage|Missing deadline": 37,
+  "DoS|Unbounded loop": 46,
+  "Chainlink|Stale Value": 2,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 14
+ },
+ "8f18f7d5c396": {
+  "DoS|Unbounded loop": 4,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 4,
+  "Slippage|Missing deadline": 2
+ },
+ "9470d2cf198f": {
+  "DoS|Unbounded loop": 7,
+  "Slippage|Missing deadline": 6
+ },
+ "97843b77b287": {
+  "DoS|Unbounded loop": 25
+ },
+ "98b7c1691811": {
+  "Slippage|Missing deadline": 1
+ },
+ "9befb133ee74": {
+  "DoS|Unbounded loop": 19,
+  "Chainlink|Deprecated Library": 4
+ },
+ "9cc1dc4ae06a": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 2,
+  "DoS|Unbounded loop": 16,
+  "Slippage|Missing deadline": 11
+ },
+ "9ddd6b83c27e": {
+  "DoS|Unbounded loop": 2,
+  "Slippage|Missing deadline": 1
+ },
+ "a1ee58021528": {
+  "DoS|Unbounded loop": 1
+ },
+ "a3e15237ea08": {
+  "DoS|Unbounded loop": 12,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 6
+ },
+ "a4d91fb1550f": {
+  "Slippage|Missing deadline": 3,
+  "DoS|Unbounded loop": 14
+ },
+ "a8884f87db1a": {
+  "Slippage|Missing deadline": 6,
+  "DoS|Unbounded loop": 2
+ },
+ "af8e4af75dc2": {
+  "DoS|Unbounded loop": 3,
+  "Slippage|Missing deadline": 7,
+  "Chainlink|Deprecated Library": 16
+ },
+ "afa60bc8003d": {
+  "Slippage|Missing deadline": 1,
+  "DoS|Unbounded loop": 5
+ },
+ "b155c4de6012": {
+  "Slippage|Missing deadline": 11,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1,
+  "DoS|Unbounded loop": 8
+ },
+ "b2a8c124d062": {
+  "Slippage|Missing deadline": 8
+ },
+ "b7fc4d82013a": {
+  "DoS|Unbounded loop": 9,
+  "Slippage|Missing deadline": 2
+ },
+ "ba93b3b8d7cf": {
+  "DoS|Unbounded loop": 1,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 2
+ },
+ "bb3018c8812c": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 4,
+  "DoS|Unbounded loop": 4
+ },
+ "c20104cb90d7": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "c2426a2ab283": {
+  "DoS|Unbounded loop": 128,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 12,
+  "Slippage|Missing deadline": 13
+ },
+ "d562802cb53a": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 10,
+  "DoS|Unbounded loop": 26,
+  "Slippage|Missing deadline": 3
+ },
+ "d9b35c0c87a4": {
+  "Reentrancy|Violating CEI / Missing nonReentrant": 7,
+  "Chainlink|Stale Value": 2,
+  "Slippage|Missing deadline": 7
+ },
+ "dd17040a53bc": {
+  "DoS|Unbounded loop": 23,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 3,
+  "Slippage|Missing minOut / maxAmount": 3,
+  "Slippage|Missing deadline": 2
+ },
+ "e0d2d83ea351": {
+  "Slippage|Missing deadline": 14,
+  "DoS|Unbounded loop": 5,
+  "Slippage|Missing minOut / maxAmount": 1
+ },
+ "e169bbefc6e2": {
+  "DoS|Unbounded loop": 7,
+  "Chainlink|Deprecated Library": 2,
+  "Slippage|Missing deadline": 1
+ },
+ "e6e43dfea59f": {
+  "DoS|Unbounded loop": 70,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 13,
+  "Slippage|Missing deadline": 21
+ },
+ "e7921851ec01": {
+  "Slippage|Missing deadline": 3,
+  "DoS|Unbounded loop": 26,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 1
+ },
+ "e99e64a8abf1": {
+  "DoS|Unbounded loop": 9,
+  "Slippage|Missing deadline": 1
+ },
+ "ee25ec7abd40": {
+  "DoS|Unbounded loop": 35,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 14,
+  "Slippage|Missing deadline": 15
+ },
+ "fa1836e0615e": {
+  "Slippage|Missing deadline": 6,
+  "Reentrancy|Violating CEI / Missing nonReentrant": 4,
+  "DoS|Unbounded loop": 14,
+  "Slippage|Missing minOut / maxAmount": 3
+ },
+ "fee749ecd513": {
+  "Slippage|Missing deadline": 6
+ }
+}

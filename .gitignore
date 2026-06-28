@@ -20,8 +20,7 @@ env/
 # Agent bridge — local async coordination, not for public repo
 bridges/
 
-# Outputs and artifacts (regenerable)
-outputs/
+# Artifacts (regenerable). NOTE: outputs/ (submission CSVs) tracked for backup — private repo.
 artifacts/
 
 # Logs
@@ -47,9 +46,9 @@ tools/renft_src/
 labeling_handoff/
 labeling_handoff_local/
 
-# Fine-tuning experiment: derived data + LLM prediction dumps (regenerable; contain labels — keep private mid-competition)
-finetune/teacher/
+# Fine-tuning experiment: keep the big regenerable LLM input-batch dumps out, but
+# track the small valuable artifacts (mappings, predictions, score ladder). Private repo.
+finetune/teacher/*batches*/
 finetune/data/
 kaggle_ft/dataset/
-data_history/
 finetune/results_*.json

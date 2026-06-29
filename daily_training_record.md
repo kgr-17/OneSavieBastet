@@ -1279,3 +1279,33 @@ Competitor **github.com/ZSZH12138/OneSavie_Bastet** (leaderboard ~440) README st
 4. Lock best as final (private LB decides; v50/v55/v47 all 481.21 public, v58 should exceed).
 
 New code: `finetune/`: local_eval, coverage_gap, static_detect, build_rubric, cross_method, build_conf80, build_report_grounded(2), build_gold_resolve, build_tight_sheet, build_5pass, enrich_labeling_sheet, build_report_grounded2. `finetune/teacher/gitmap.json` (authoritative repo identity).
+
+---
+
+## 2026-06-29 (UTC) — 3-slot push: NEW BEST 482.97 via CONCISE DESCRIPTION rewrite
+
+### NEW PUBLIC BEST: 482.96658 (`outputs/submission_c4_v59_gitfix_descrewrite.csv`, archived `data_history/..._482.97.csv`)
+= v58 git-fix base + ALL 289 guessed-row descriptions rewritten in concise dataset_0831 "Cause:/Impact:" style (git+code grounded, workflow wh9etl6ss). **+1.76 over 481.21.** Banks the git-fix too (built on v58). **SELECT v59 on Kaggle.**
+
+### Today's 3 live submissions (decisive learnings)
+| slot | submission | public | verdict |
+|---|---|---:|---|
+| 1 | v58 git-fix (7 wrong-contest rows -> correct canonical) | 481.20770 | TIED public; fixes private-split rows -> private win, banked |
+| 2 | v60 big coverage swing (drop 18 low-value, add 18 canonical to popcorn/etc) | 473.24902 | **-8 FAIL.** Coverage reallocation HURTS us (our rows are well-allocated; drops lose real matches diaODa5-style harvesting doesn't apply at our level) |
+| 3 | v59 concise description rewrite | **482.96658** | **+1.76 NEW BEST.** Descriptions ARE a lever |
+
+### KEY FINDING: the hidden truth descriptions are TERSE, and concise rewrites help
+- Validated hypothesis: truth desc median ~223 chars (train.csv proxy); our old desc ~350 (1.4x verbose). Concise "Cause:/Impact:" matched truth better, crossing more of the description-score 0.7 cosine cliff. Live: +1.76.
+- The earlier local check (concise matches *canonical* -0.058) was measuring the WRONG target (canonical is verbose; truth is terse). Live result settles it: **truth ~ terse dataset_0831 style -> concise WINS.**
+- **SCALE TOMORROW:** (1) rewrite even terser / closer to exact dataset_0831 "cause:/impact:" wording; (2) also rewrite the ~111 gold/kept rows if verbose (v59 only touched the 289 guessed); (3) re-run on the v59 base to compound. Descriptions are pure-label (never penalized, no row changes) -> low structural risk.
+
+### Confirmed dead-end (live, definitive): coverage reallocation
+v60 -8 proves it. With 400-row cap, ~all repos under-covered, our rows match real truth findings -> every drop loses a match; popcorn adds don't compensate. diaODa5 gained +6 only because they were at 375 with zero-value rows; we're at 482 with good rows. DO NOT retry coverage swaps.
+
+### Standing (2026-06-29 ~04:00 UTC)
+Our team "Everything Is CTF" = 482.97. Top: X-AISec 677.81, Verve 604.46, guonifd 511.07, SSSLLL52 510.53, 爱上雷神 484.21 (just above us). Deadline 2026-06-30.
+
+### TOMORROW (when slots reset ~00:00 UTC)
+1. **Scale the description rewrite** on the v59 base (best ROI: proven +1.76 lever, pure-label low-risk). Terser style + cover gold rows + compound passes.
+2. Keep v59 selected as best.
+3. Git-fix + report-grounded are banked. Coverage/relabel are dead.

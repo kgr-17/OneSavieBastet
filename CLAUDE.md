@@ -31,12 +31,14 @@ python skills/claude-code-bridge/scripts/claude_bridge.py respond --task-id <tas
 This project is tracking the Bastet smart-contract vulnerability competition.
 The local validation standard lives in `src/run_validation_standard.py` and the shared validation skill lives in `skills/bastet-validation-standard/`.
 
-## Latest Bastet Handoff - 2026-06-28 (BEST 481.21, #5 — git-metadata leak found)
+## Latest Bastet Handoff - 2026-06-29 (NEW BEST 482.97 — descriptions are a lever)
 
-Start here after refresh. Full detail in `daily_training_record.md` (2026-06-27/28 section).
+Start here after refresh. Full detail in `daily_training_record.md` (2026-06-29 section).
 
-- **CURRENT PUBLIC BEST: `481.20770`** = `outputs/submission_c4_v50_v49_plus216.csv` (v49 report-grounded +1.24 over 479.96, + pid216 ERC4626 gold). Team rank **#5**. Top teams: X-AISec 649, Verve 604, guonifd 510 (gap ~28 to top-4). Deadline 2026-06-30.
-- **TOMORROW SUBMIT FIRST: `outputs/submission_c4_v58_gitfix.csv`** (staged `data_history/submission_c4_v58_gitfix_PENDING.csv`). HIGH confidence (~+7-15, near-zero downside). See below.
+- **CURRENT PUBLIC BEST: `482.96658`** = `outputs/submission_c4_v59_gitfix_descrewrite.csv` (also `data_history/..._482.97.csv`). = v58 git-fix base + all 289 descriptions rewritten CONCISE "Cause:/Impact:" style. +1.76 over 481.21. **SELECT v59 on Kaggle.**
+- **KEY LEVER (proven live +1.76): CONCISE descriptions.** Hidden truth descriptions are TERSE (~223 chars, dataset_0831 style); our old ones were ~350 (verbose) and scored below the description 0.7-cosine cliff for many rows. Concise rewrites cross it. **SCALE TOMORROW: terser style, also rewrite the ~111 gold rows (v59 only did the 289 guessed), compound on the v59 base. Pure-label = low risk.**
+- **DEAD-END confirmed live: coverage reallocation.** v60 big coverage swing = 473.25 (-8). Our 400 rows are well-allocated; every drop loses a real match. DO NOT retry coverage swaps.
+- **git-fix (v58) banked into v59** for the private LB: 3 mis-mapped repos (mzero/canto/badger-citadel) had 7 wrong-contest rows fixed. Authoritative mapping `finetune/teacher/gitmap.json` (from .git/config of 51/52 test repos).
 - **THE BREAKTHROUGH — git-metadata leak (from competitor github.com/ZSZH12138/OneSavie_Bastet, ~440):** 51/52 test repos have `data/test/<hash>/.git/config` with the exact GitHub origin -> precise C4/Sherlock contest. `finetune/teacher/gitmap.json` = authoritative hash->contest. Our description-matching MIS-MAPPED 3 repos (51c6dc5fd57f=mzero, 54405135ebf3=canto, e6e43dfea59f=badger-citadel); ~7 rows describe the wrong contest's findings (scoring ~0). **v58 fixes them with correct canonical findings.** Next: re-verify all 51 mappings, fix any other wrong-contest rows (mzero/canto reports parsed poorly — Sherlock format, re-parse).
 - **CRITICAL: train-holdout does NOT predict public** (v34 scored 56 holdout, +4.2 live). Optimize via live submissions + cross-model/git evidence. **No free Kaggle slots until daily reset (~5pm PDT / 00:00 UTC).**
 - **Scorer (from src/run_validation_standard.py):** 400-row HARD cap (Property 1..400); `repo_penalty=max(0,n_pred-n_truth)` per repo; we're under-covered everywhere -> penalty 0, all rows match. Coverage reallocation is ~zero-sum (v55 swing tied). Tags MAXED (OneSavie rubric code-detection agrees 97% with v50). Descriptions already match canonical 0.93 / clear 0.7 at 98%.

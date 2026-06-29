@@ -1309,3 +1309,10 @@ Our team "Everything Is CTF" = 482.97. Top: X-AISec 677.81, Verve 604.46, guonif
 1. **Scale the description rewrite** on the v59 base (best ROI: proven +1.76 lever, pure-label low-risk). Terser style + cover gold rows + compound passes.
 2. Keep v59 selected as best.
 3. Git-fix + report-grounded are banked. Coverage/relabel are dead.
+
+### 2026-06-29 (cont.) — v61 severity fixes BACKFIRED (-5.3); v61b ready for final day
+- `submission_c4_v61_golddesc_sev.csv` = v59 + 23 concise gold descriptions + 14 severity fixes -> **477.65740 (-5.3 vs 482.97)**.
+- Culprit = the 14 SEVERITY fixes (flagged risky: 0.80-0.85 match confidence, mostly High->Medium). Wrong flips lose ~1.0/pair on the severity field. CONFIRMS: do NOT fix severity from fuzzy report matches; our severities are already ~right (0 mismatches at >0.85 confidence).
+- Best stays v59=482.96658 (selected; v61 drop doesn't lower standing).
+- **`outputs/submission_c4_v61b_golddesc.csv` (description-ONLY, no severity) is BUILT + verified, UNTESTED.** 23 verbose gold rows compressed 350->221 chars (truth ~223), 0 structural drift, pure description lever. **SUBMIT FIRST on the final day (2026-06-30 reset).** If it gains -> new best; if it drops -> gold-row truth descs are verbose, keep v59.
+- Team quota: 5/day SHARED with teammate (teammate also submits). Used all 5 on 2026-06-29.

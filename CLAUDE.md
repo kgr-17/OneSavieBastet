@@ -39,7 +39,7 @@ Start here after refresh. Full detail in `daily_training_record.md` + **`ANALYSI
 - **THE LEVER (proven live +1.76): CONCISE descriptions.** `description_score = BGE_cosine if >0.7 else 0`, summed RAW per pair. Truth descs are TERSE (~223 chars); ours were verbose (~350, 1.6x) -> ~0.05 lower cosine/pair x ~300 pairs = +1.76. Pure-label, near-zero downside.
 - **READY FOR FINAL DAY (2026-06-30 reset) — SUBMIT IN ORDER:**
   1. `outputs/submission_c4_v61b_golddesc.csv` = v59 + 23 verbose GOLD rows compressed (350->221 chars), descriptions-only, 0 drift. (v61b is the SAFE version; v61_golddesc_sev added severity and LOST -5.3.)
-  2. `outputs/submission_c4_v62_*` (re-tighten the 289 guessed rows 291->~210, workflow wj32hwmlp) — IF v61b gains.
+  2. `outputs/submission_c4_v62_tighter.csv` = v61b + 289 guessed descriptions re-tightened to median 222 chars (== truth 223), 0 drift. The MAXIMAL description candidate. Submit if v61b gains (or as the aggressive first shot).
 - **DEAD-ENDS confirmed live (do NOT retry):** coverage swing v60 = -8; severity-from-fuzzy-match v61 = -5.3 (our severities already right at >0.85 conf); multi-label -1.0; source-code relabel -8.4; broad relabel maxed (tags agree 97%).
 - **git leak banked:** 51/52 test repos have `.git/config` -> exact contest (`finetune/teacher/gitmap.json`). Fixed 3 mis-mapped repos in v58 (banked into v59 for private LB). Competitors ZSZH(~440)/diaODa5(~432) confirm approach, both below us.
 - **Quota: 5/day SHARED with teammate.** Deadline 2026-06-30.

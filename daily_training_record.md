@@ -1331,3 +1331,10 @@ Our team "Everything Is CTF" = 482.97. Top: X-AISec 677.81, Verve 604.46, guonif
 - **FINAL: v59 = 482.96658 is a confirmed local optimum.** All v59 variations lose live: gold-compress -0.31, tighter-223 -1.04, severity -5.3, coverage -8, fresh-tag-pass 0 corrections. Descriptions maxed at 291 (both directions worse), tags maxed (0 confident corrections).
 - Standing: #6, 482.97. 5th = 爱上雷神 484.21 (+1.24 ahead). Top X-AISec 687.5 (structural gap, unreachable by relabeling the fixed skeleton).
 - **RECOMMENDATION: lock v59 as final. No candidate left with positive rationale; stop gambling slots.** v59 banks git-fix + report-grounded tags + concise descriptions (strongest private-LB candidate too).
+
+### 2026-06-30 — v64 exact-dataset_0831 FAILED (-5.7); v59 is a PROVEN optimum
+- `submission_c4_v64_exactds.csv` = v59 + 37 descs replaced with exact dataset_0831 text = **477.27163 (-5.7)**.
+- ROOT CAUSE: the dataset_0831 descriptions for those rows are CHINESE; the hidden TRUTH descriptions are ENGLISH. v59's English concise descriptions already match truth better than the Chinese source text. (The v5 +100 dataset_0831-lookup worked for rows where the source text matched; not these.)
+- DEFINITIVE: v59=482.96658 is a hard optimum. ALL evidence-based variations lose live: gold-compress -0.31, tighter-223 -1.04, exact-ds-text -5.7, severity -5.3, coverage -8; fresh git-correct tag pass = 0 confident corrections. Descriptions already truth-aligned (English, ~291 chars); tags maxed.
+- Gap to #5 (484.21) = +1.24, but UNBRIDGEABLE with available levers (relabeling the fixed 400-row skeleton). Top teams (510-687) win via structural coverage/identity-recovery rebuild, out of reach in time left.
+- **FINAL ANSWER: v59 = 482.97 (#6). Locked.** Banks git-fix + report-grounded tags + concise descriptions (strongest private-LB candidate). Stop gambling -EV slots.

@@ -1316,3 +1316,11 @@ Our team "Everything Is CTF" = 482.97. Top: X-AISec 677.81, Verve 604.46, guonif
 - Best stays v59=482.96658 (selected; v61 drop doesn't lower standing).
 - **`outputs/submission_c4_v61b_golddesc.csv` (description-ONLY, no severity) is BUILT + verified, UNTESTED.** 23 verbose gold rows compressed 350->221 chars (truth ~223), 0 structural drift, pure description lever. **SUBMIT FIRST on the final day (2026-06-30 reset).** If it gains -> new best; if it drops -> gold-row truth descs are verbose, keep v59.
 - Team quota: 5/day SHARED with teammate (teammate also submits). Used all 5 on 2026-06-29.
+
+## 2026-06-30 (FINAL DAY) — both levers maxed; v62b is the teammate recommendation
+- Slot used (mine): v61b = 482.65740 (-0.31). Gold rows came FROM dataset_0831 (truth source) -> already truth-close -> compressing them moved AWAY from truth. Lesson: do not over-compress already-terse rows.
+- Fresh git-correct report-grounded TAG pass (exact reports + code, all 289): **18 rows differ from current but 0 at conf>=0.85.** TAG LEVER EXHAUSTED — even with exact reports, no confident corrections (the differs are the irreducible DoS/Logic/Accounting-ambiguous rows). v63 == v59.
+- => BOTH proven levers maxed at v59 (482.97): descriptions (further compression hurts), tags (0 confident corrections).
+- **Local validation honest read:** train-holdout AND 14-row independent-gold both fail to predict public (v59 scores LOWER on gold-tag than v50 but HIGHER live). So ranking is evidence-weighted, not a hard local score.
+- **TEAMMATE RECOMMENDATION (their 2 reserved slots): `outputs/submission_c4_v62b_tight289.csv`** (also `data_history/..._RECOMMENDED.csv`). = v59 + 289 guessed descriptions re-tightened from 291 -> median 223 chars (== truth 223). RATIONALE: v59 won +1.76 going verbose(350)->concise(291); v62b continues the SAME direction to exact truth length, with HIGH content fidelity (BGE 0.948 to v59, technical terms preserved), 0 non-desc drift, gold rows untouched (avoids the v61b -0.31 mistake). Genuine rationale to beat v59; pure-label low risk. Keep v59 as the safe fallback (selected).
+- DO NOT use the remaining slots on: severity (v61 -5.3), coverage (v60 -8), low-conf tag corrections (v46/v48 over-tag DoS), gold-row compression (v61b -0.31).

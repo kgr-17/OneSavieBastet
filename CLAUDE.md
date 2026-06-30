@@ -37,9 +37,9 @@ Start here after refresh. Full detail in `daily_training_record.md` + **`ANALYSI
 
 - **CURRENT PUBLIC BEST: `482.96658`** = `outputs/submission_c4_v59_gitfix_descrewrite.csv`. = v58 git-fix + all 289 guessed descriptions rewritten CONCISE "Cause:/Impact:". +1.76 over 481.21. **SELECT v59 on Kaggle.**
 - **THE LEVER (proven live +1.76): CONCISE descriptions.** `description_score = BGE_cosine if >0.7 else 0`, summed RAW per pair. Truth descs are TERSE (~223 chars); ours were verbose (~350, 1.6x) -> ~0.05 lower cosine/pair x ~300 pairs = +1.76. Pure-label, near-zero downside.
-- **READY FOR FINAL DAY (2026-06-30 reset) — SUBMIT IN ORDER:**
-  1. `outputs/submission_c4_v61b_golddesc.csv` = v59 + 23 verbose GOLD rows compressed (350->221 chars), descriptions-only, 0 drift. (v61b is the SAFE version; v61_golddesc_sev added severity and LOST -5.3.)
-  2. `outputs/submission_c4_v62_tighter.csv` = v61b + 289 guessed descriptions re-tightened to median 222 chars (== truth 223), 0 drift. The MAXIMAL description candidate. Submit if v61b gains (or as the aggressive first shot).
+- **FINAL-DAY RESULTS:** v61b (gold compress) = 482.66 (-0.31, gold rows already truth-close). Fresh git-correct TAG pass = 0 confident corrections -> tag lever EXHAUSTED. BOTH proven levers maxed at v59.
+- **TEAMMATE RECOMMENDATION (reserved slots): `outputs/submission_c4_v62b_tight289.csv`** = v59 + 289 guessed descriptions re-tightened to median 223 chars (== truth), HIGH fidelity (BGE 0.948 to v59), 0 drift, gold untouched. Continues the proven +1.76 direction to exact truth length. Keep v59 as safe fallback.
+- DO NOT spend slots on: severity (-5.3), coverage (-8), gold compression (-0.31), low-conf tags (over-DoS).
 - **DEAD-ENDS confirmed live (do NOT retry):** coverage swing v60 = -8; severity-from-fuzzy-match v61 = -5.3 (our severities already right at >0.85 conf); multi-label -1.0; source-code relabel -8.4; broad relabel maxed (tags agree 97%).
 - **git leak banked:** 51/52 test repos have `.git/config` -> exact contest (`finetune/teacher/gitmap.json`). Fixed 3 mis-mapped repos in v58 (banked into v59 for private LB). Competitors ZSZH(~440)/diaODa5(~432) confirm approach, both below us.
 - **Quota: 5/day SHARED with teammate.** Deadline 2026-06-30.

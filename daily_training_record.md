@@ -1324,3 +1324,10 @@ Our team "Everything Is CTF" = 482.97. Top: X-AISec 677.81, Verve 604.46, guonif
 - **Local validation honest read:** train-holdout AND 14-row independent-gold both fail to predict public (v59 scores LOWER on gold-tag than v50 but HIGHER live). So ranking is evidence-weighted, not a hard local score.
 - **TEAMMATE RECOMMENDATION (their 2 reserved slots): `outputs/submission_c4_v62b_tight289.csv`** (also `data_history/..._RECOMMENDED.csv`). = v59 + 289 guessed descriptions re-tightened from 291 -> median 223 chars (== truth 223). RATIONALE: v59 won +1.76 going verbose(350)->concise(291); v62b continues the SAME direction to exact truth length, with HIGH content fidelity (BGE 0.948 to v59, technical terms preserved), 0 non-desc drift, gold rows untouched (avoids the v61b -0.31 mistake). Genuine rationale to beat v59; pure-label low risk. Keep v59 as the safe fallback (selected).
 - DO NOT use the remaining slots on: severity (v61 -5.3), coverage (v60 -8), low-conf tag corrections (v46/v48 over-tag DoS), gold-row compression (v61b -0.31).
+
+### 2026-06-30 — v62b CONFIRMS v59 is the optimum; levers exhausted
+- `submission_c4_v62b_tight289.csv` = v59 + 289 descs re-tightened 291->223 chars = **481.92761 (-1.04)**.
+- LESSON: v59's ~291-char concise style is the SWEET SPOT, not the truth length (223). Over-tightening lost ~5% semantic content (BGE fidelity 0.948 wasn't enough) -> -1.04. Description quality = full content + concise, NOT minimum length.
+- **FINAL: v59 = 482.96658 is a confirmed local optimum.** All v59 variations lose live: gold-compress -0.31, tighter-223 -1.04, severity -5.3, coverage -8, fresh-tag-pass 0 corrections. Descriptions maxed at 291 (both directions worse), tags maxed (0 confident corrections).
+- Standing: #6, 482.97. 5th = 爱上雷神 484.21 (+1.24 ahead). Top X-AISec 687.5 (structural gap, unreachable by relabeling the fixed skeleton).
+- **RECOMMENDATION: lock v59 as final. No candidate left with positive rationale; stop gambling slots.** v59 banks git-fix + report-grounded tags + concise descriptions (strongest private-LB candidate too).

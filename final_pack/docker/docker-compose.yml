@@ -1,0 +1,15 @@
+services:
+  pipeline:
+    build: .
+    image: onesavie-bastet:latest
+    container_name: bastet
+    working_dir: /workspace
+    volumes:
+      # Persist between runs and let the host see results
+      - ./data:/workspace/data
+      - ./outputs:/workspace/outputs
+      - ./artifacts:/workspace/artifacts
+    stdin_open: true
+    tty: true
+    # Default command — override with `docker compose run --rm pipeline <cmd>`
+    command: bash

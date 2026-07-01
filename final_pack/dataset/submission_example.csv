@@ -1,0 +1,7 @@
+Property,repo_path,severity,tag,subtag,description
+1,xxxxx,Medium,Accounting Error,"Peg / Depeg, Price Manipulation / Arbitrage opportunity, Reward Manipulation","this is a example of description"
+2,yyyyy,High,Oracle Manipulation,"Price Manipulation / Arbitrage opportunity","this is a example of description"
+3,empty,empty,empty,empty,empty
+4,empty,empty,empty,empty,empty
+...
+400,empty,empty,empty,empty,empty

@@ -1,0 +1,16 @@
+# Large data, regenerable artifacts, dev metadata
+data/
+outputs/
+artifacts/
+bridges/
+.claude/
+.git/
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+*.zip
+*.log
+
+# Notebooks the pipeline doesn't need
+download-vuln.ipynb

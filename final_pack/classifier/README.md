@@ -2,7 +2,7 @@
 
 Reverse-engineers the competition's `(tag, subtag)` labeling function with an LLM and applies it
 **in place** to the rows our lookup pipeline left as guesses. Severity (99% gold in `dataset_0831`)
-and descriptions (rich canonical text) are already maxed; **tag/subtag are the leak** and this is
+and descriptions (rich canonical text) are already maxed; **tag/subtag are the gap** and this is
 where the points are.
 
 ## Why it works (the curse-breaker)

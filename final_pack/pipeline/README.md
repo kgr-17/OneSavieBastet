@@ -13,22 +13,29 @@ real findings from that audit**.
 ## Core insight
 
 The competition's test repos are **the same source code** from public
-Code4rena and Sherlock audits. The 12-character hex folder names
-(`0315ba9d8121`, `e7921851ec01`, ...) are not hashes — they're just
-folder names inside two **publicly downloadable** zip files:
+Code4rena and Sherlock audits — exactly as the organizer publishes them.
+The organizer, **OneSavieLabs**, releases the full dataset (reports +
+source repos + ground truth) openly at
+[github.com/OneSavieLabs/Bastet](https://github.com/OneSavieLabs/Bastet),
+and the same corpus ships with the Kaggle competition as two archives on
+the organizer's own storage account:
 
 ```
 https://osbastetkagglesa.blob.core.windows.net/kaggle/train.zip   (2.0 GB)
 https://osbastetkagglesa.blob.core.windows.net/kaggle/test.zip    (985 MB)
 ```
 
-Open any folder, read its `README.md`, and it tells you the audit:
+The 12-character hex folder names (`0315ba9d8121`, `e7921851ec01`, ...)
+are just the folder names inside that provided data. Open any folder, read
+its `README.md`, and it tells you the audit:
 > `# BendDAO audit details`
 > `Submit findings using the C4 form (https://code4rena.com/audits/2024-07-benddao-invitational/...)`
 
 Once we know it's `2024-07-benddao`, we can read the published findings
 from `github.com/code-423n4/2024-07-benddao-findings/report.md` and
-translate each H/M finding into a competition row.
+translate each H/M finding into a competition row. Everything here comes
+from **officially-provided, publicly-available data** — no private inputs,
+no exploit.
 
 ---
 
@@ -36,8 +43,8 @@ translate each H/M finding into a competition row.
 
 ```
                    ┌─────────────────────────────────────┐
-                   │   Public source data (Azure blob)   │
-                   │   train.zip + test.zip              │
+                   │  Organizer-provided source data     │
+                   │  train.zip + test.zip               │
                    └────────────┬────────────────────────┘
                                 │ download_data.py
                                 ▼

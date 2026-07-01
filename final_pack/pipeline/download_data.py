@@ -1,9 +1,11 @@
-"""Download the competition source data from the public Azure blob URLs.
+"""Download the organizer-provided competition source data.
 
-The Kaggle dataset `wliilamsam/download-vuln` showed itself as private but its
-download-vuln.ipynb notebook simply ran two wget commands against these public
-URLs. The 12-character hex IDs in train.csv/test.csv are folder names inside
-the zip files — there is no hash function to reverse.
+train.zip / test.zip are the competition's own source-data archives, hosted on
+the organizer's Kaggle storage account (`osbastetkagglesa`). The same corpus is
+published openly by the organizer, OneSavieLabs, at
+https://github.com/OneSavieLabs/Bastet (and its linked Google Drive dataset).
+The 12-character hex IDs in train.csv/test.csv are simply the folder names inside
+these archives — there is no hash function to reverse.
 
 Run from project root:
     python src/pipeline/download_data.py

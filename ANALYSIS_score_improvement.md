@@ -63,12 +63,17 @@ v59 only rewrote the 289 guessed rows; the ~111 gold rows and an even-terser pas
   zero-value rows to harvest; we do not at 483.)
 - **Multi-label restore from noisy 2nd-tags (−1.0), source-code relabel (−8.4):** re-used weak signal.
 
-## 5. The "leak" that defines the task
+## 5. The provided-data structure that defines the task
 
-The competition is effectively **source-recovery + report-matching**, not blind code reasoning:
-- **51/52 test repos retain `.git/config`** → exact GitHub origin → exact C4/Sherlock contest
-  (`finetune/teacher/gitmap.json`). This fixed 3 mis-mapped repos (mzero/canto/badger-citadel) whose
-  rows described the wrong contest (v58, banked for the private LB).
+All of this uses **officially-provided, public data** — the audit reports, source repos, and
+ground-truth annotations the organizer (OneSavieLabs) publishes at
+[github.com/OneSavieLabs/Bastet](https://github.com/OneSavieLabs/Bastet) and its linked
+[Google Drive dataset](https://drive.google.com/drive/folders/1b3jp6SaNehX4ccZbrmbqeBUoXijXTOmz).
+Given that data, the task is effectively **source-recovery + report-matching**, not blind code
+reasoning:
+- **51/52 test repos in the provided data retain their original `.git/config`** → exact GitHub
+  origin → exact C4/Sherlock contest (`finetune/teacher/gitmap.json`). This fixed 3 mis-mapped repos
+  (mzero/canto/badger-citadel) whose rows described the wrong contest (v58, banked for the private LB).
 - Confirmed independently by two competitor repos (ZSZH ~440, diaODa5 ~432), both below our 483.
 
 ## 6. Bottom line

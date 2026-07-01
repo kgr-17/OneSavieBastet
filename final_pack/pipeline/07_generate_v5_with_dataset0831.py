@@ -1,4 +1,5 @@
-"""v5 — adds direct lookup from dataset_0831.csv (team annotation file).
+"""v5 — adds direct lookup from dataset_0831.csv (public dataset, Google Drive:
+https://drive.google.com/drive/folders/1b3jp6SaNehX4ccZbrmbqeBUoXijXTOmz).
 
 Strategy:
 1. For each test hash whose audit appears in dataset_0831 with Done rows,

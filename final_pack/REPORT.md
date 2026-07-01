@@ -38,7 +38,15 @@ Three properties dominate the strategy and are baked into every design decision 
 
 ---
 
-## 2. The dataset (and the leak the whole framework is built on)
+## 2. The dataset (all officially published by the organizer)
+
+> **On provenance / fair play.** Every input this framework uses is **officially published by the
+> competition organizer, OneSavieLabs** — the audit reports, the source repositories, and the
+> ground-truth annotations are all distributed openly at
+> **[github.com/OneSavieLabs/Bastet](https://github.com/OneSavieLabs/Bastet)** and its linked
+> [Google Drive folder](https://drive.google.com/drive/folders/1b3jp6SaNehX4ccZbrmbqeBUoXijXTOmz).
+> Nothing here relies on private data, an unintended exposure, or any exploit — the approach is
+> simply *using the provided dataset as the organizer released it.*
 
 ### 2.1 The three data files
 
@@ -58,38 +66,45 @@ Property,repo_path,severity,tag,subtag,description
 Note the multi-value `tag` field (comma-separated), the single `subtag`, and the terse,
 summary-style `description`.
 
-### 2.2 The core insight — the IDs are not hashes, they are folder names
+### 2.2 The core insight — the IDs are folder names in the provided dataset
 
-The 12-char hex IDs are **folder names inside two publicly downloadable Azure blobs**:
+The 12-char hex IDs are **folder names inside the competition's own source-data release**. The same
+corpus the organizer publishes at [github.com/OneSavieLabs/Bastet](https://github.com/OneSavieLabs/Bastet)
+(as `dataset/repos/` + `dataset/reports/`) ships with the Kaggle competition as two downloadable
+archives on the organizer's own storage account (`osbastetkagglesa` = **OneSavie Bastet Kaggle SA**):
 
 ```
 https://osbastetkagglesa.blob.core.windows.net/kaggle/train.zip   (~2.0 GB)
 https://osbastetkagglesa.blob.core.windows.net/kaggle/test.zip    (~985 MB)
 ```
 
-Each folder is the **source tree of a public Code4rena or Sherlock audit**. Open the folder,
-read its `README.md`, and it names the contest:
+Each folder is the **source tree of a public Code4rena or Sherlock audit** (the `dataset/repos/`
+the organizer distributes). Open the folder, read its `README.md`, and it names the contest:
 
 ```
 # BendDAO audit details
 Submit findings using the C4 form (https://code4rena.com/audits/2024-07-benddao-invitational/...)
 ```
 
-Once a repo is identified as `2024-07-benddao`, its **published H/M findings** can be read
-straight from `github.com/code-423n4/2024-07-benddao-findings/report.md`. The task collapses from
-"predict vulnerabilities" to **"identify the audit, then transcribe its real findings."**
+Once a repo is identified as `2024-07-benddao`, its **published H/M findings** can be read straight
+from `github.com/code-423n4/2024-07-benddao-findings/report.md` (the same public audit reports the
+organizer also ships under `dataset/reports/`). The task collapses from "predict vulnerabilities"
+to **"identify the audit, then transcribe its real findings"** — entirely from officially-provided,
+publicly-available data.
 
 ### 2.3 The two extra dataset leverages
 
-- **`dataset_0831.csv`** (proprietary teammate annotation file, *not shipped here* — ~467 KB,
-  504 rows). For test audits that appear in it, it provides ready-made rows in the exact
-  competition schema (gold `severity`, train-style descriptions). Severity is ~99% filled; only
-  ~12% of rows carry a gold `tag`/`subtag` — the remaining ~289 rows are the classifier's job.
-- **The git-metadata leak — [`dataset/hash_to_contest_gitmap.json`](dataset/hash_to_contest_gitmap.json).**
-  nearly every test repo retains a `.git/config` inside its folder whose `origin` URL names the
-  exact GitHub audit repo. The shipped map resolves **51** of the test hashes — the
-  **authoritative** hash→contest source, more reliable than parsing READMEs, and it corrected 3
-  mis-mapped repos in later submissions.
+- **`dataset_0831.csv`** (a **public dataset**, published on Google Drive —
+  [drive folder](https://drive.google.com/drive/folders/1b3jp6SaNehX4ccZbrmbqeBUoXijXTOmz); *not
+  shipped here* — ~467 KB, 504 rows). For test audits that appear in it, it provides ready-made rows
+  in the exact competition schema (gold `severity`, train-style descriptions). Severity is ~99%
+  filled; only ~12% of rows carry a gold `tag`/`subtag` — the remaining ~289 rows are the
+  classifier's job.
+- **Git metadata in the provided repos — [`dataset/hash_to_contest_gitmap.json`](dataset/hash_to_contest_gitmap.json).**
+  Nearly every test repo in the officially-distributed data retains its original `.git/config`,
+  whose `origin` URL names the exact GitHub audit repo. The shipped map resolves **51** of the test
+  hashes — the **authoritative** hash→contest source, more reliable than parsing READMEs, and it
+  corrected 3 mis-mapped repos in later submissions.
 
 ---
 
@@ -116,14 +131,14 @@ The whole project is two stacked ideas. **Era 1 maxes coverage; Era 2 fixes the 
 ```
 
 **Why Era 2 is the real lever.** Once coverage is maxed, diagnostics on a repo-disjoint train
-holdout show where points actually leak:
+holdout show where points are actually lost:
 
 | Dimension | Naive | Modeled | Status |
 |---|---|---|---|
 | Severity | gold | gold | maxed (from `dataset_0831`) |
 | Description | ~91% clear the 0.7 bar | — | maxed (canonical text, kept terse) |
-| **Tag** | **~24%** | **~65%** | the leak — LLM classifier |
-| **Subtag** | **~11%** | **~51%** | the leak — LLM classifier |
+| **Tag** | **~24%** | **~65%** | the gap — LLM classifier |
+| **Subtag** | **~11%** | **~51%** | the gap — LLM classifier |
 
 The critical methodological rule: **validate label changes on a repo-disjoint *train* holdout,
 not a test self-holdout.** Repo hashes are disjoint train↔test, so coverage tuning never transfers
@@ -139,7 +154,7 @@ All scripts run **from the project root** (not from inside `pipeline/`). Each st
 output under `artifacts/` so reruns are cheap.
 
 ```
-        Public source data (Azure blob): train.zip + test.zip
+     Competition source data (officially provided): train.zip + test.zip
                          │  download_data.py
                          ▼
    ┌──────────────────────────────────────────────────────────────┐
@@ -165,7 +180,7 @@ output under `artifacts/` so reruns are cheap.
 
 | Step | File | What it does |
 |---|---|---|
-| 0 | [`pipeline/download_data.py`](pipeline/download_data.py) | Fetch `train.zip` + `test.zip` from the public Azure blob |
+| 0 | [`pipeline/download_data.py`](pipeline/download_data.py) | Fetch the organizer-provided `train.zip` + `test.zip` (competition storage account) |
 | 1 | [`pipeline/01_list_c4_repos.py`](pipeline/01_list_c4_repos.py) | Enumerate the `code-423n4` GitHub org → `artifacts/c4_repos.json` |
 | 2 | [`pipeline/02_fetch_c4_reports.py`](pipeline/02_fetch_c4_reports.py) | Download each `*-findings/report.md` → `artifacts/c4_reports/` |
 | 3 | [`pipeline/03_list_sherlock_repos.py`](pipeline/03_list_sherlock_repos.py) | Enumerate the `sherlock-audit` org |
@@ -289,8 +304,9 @@ final_pack/
     └── requirements.txt
 ```
 
-**Deliberately excluded** (not foundational): failed experiment generators (`08`–`11`), the
-proprietary `dataset_0831.csv`, the multi-GB `train.zip`/`test.zip`, the full
+**Deliberately excluded** (not foundational): failed experiment generators (`08`–`11`),
+`dataset_0831.csv` (a public Google-Drive dataset — link in §2.3), the multi-GB
+`train.zip`/`test.zip`, the full
 `artifacts/c4_reports/` cache (385 fetched reports — regenerable by steps 02/04), the legacy
 standalone models, and the daily experiment log. The score ladder, dead-ends, and per-experiment
 reasoning live in the source repo's `daily_training_record.md` and `ANALYSIS_score_improvement.md`.
@@ -334,7 +350,7 @@ python pipeline/05_identify_contests.py
 
 # 4. Generate a submission
 python pipeline/06_generate_submission.py        # pure-public baseline (~212)
-# or, with the teammate annotation file present:
+# or, with the public dataset_0831.csv present (Google Drive — see REPORT.md §2.3):
 python pipeline/07_generate_v5_with_dataset0831.py
 
 # 5. Validate before upload

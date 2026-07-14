@@ -5,7 +5,6 @@
 ![Public LB](https://img.shields.io/badge/public%20LB-519.80-1f6feb)
 ![Task](https://img.shields.io/badge/task-smart--contract%20vuln%20detection-8250df)
 ![Python](https://img.shields.io/badge/Python-3.10+-3572A5)
-![License](https://img.shields.io/badge/license-MIT-555)
 
 
 Framework for the Kaggle [OneSavie Bastet](https://www.kaggle.com/competitions/onesavie-bastet)

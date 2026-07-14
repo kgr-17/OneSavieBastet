@@ -1,5 +1,13 @@
 # OneSavie Bastet — Smart Contract Vulnerability Identification
 
+![Competition](https://img.shields.io/badge/Kaggle-OneSavie%20Bastet-20BEFF)
+![Private LB](https://img.shields.io/badge/private%20LB-193.59-1b7a4a)
+![Public LB](https://img.shields.io/badge/public%20LB-482.97-1f6feb)
+![Task](https://img.shields.io/badge/task-smart--contract%20vuln%20detection-8250df)
+![Python](https://img.shields.io/badge/Python-3.10+-3572A5)
+![License](https://img.shields.io/badge/license-MIT-555)
+
+
 Framework for the Kaggle [OneSavie Bastet](https://www.kaggle.com/competitions/onesavie-bastet)
 competition: for each test smart-contract repository, predict the `(severity, tag, subtag,
 description)` of every vulnerability it contains.
